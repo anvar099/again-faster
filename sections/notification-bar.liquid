@@ -1,0 +1,19 @@
+<div class="notification">
+  <p class="notification-text">
+    {{section.settings.notificationId}}
+  </p>
+</div>
+
+{%  schema %}
+  {
+    "name": "Notification Bar",
+    "settings": [
+      {
+        "type": "text",
+        "id": "notificationId",
+        "label": "Notification Text",
+        "default": "20% OFF Sitewide until 9/12"
+      }
+    ]
+  }
+{% endschema %}

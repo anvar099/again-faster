@@ -1,0 +1,7 @@
+.notification {
+  background-color: red;
+  height: 60px;
+}
+.notification-text {
+  background-color: blue;
+}
