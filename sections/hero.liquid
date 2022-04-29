@@ -1,0 +1,62 @@
+{{ 'hero.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  .hero__container {
+    background: url( '{{ section.settings.hero-bg-img | image_url }}' );
+    background-size: cover !important;
+    background-position: center !important;
+    height: 100%;
+    background-repeat: no-repeat !important;
+    width: 100%;
+  }
+{% endstyle %}
+
+<div class="hero__container">
+  <div class=" container">
+    <div class="hero__content">
+      <h1 class="hero__title">{{ section.settings.hero-title | escape }}</h1>
+      <p class="hero__text">{{ section.settings.hero-text | escape }}</p>
+      <div class="hero__btn">
+        <a href="{{ section.settings.btn-url }}" class="hero__btn-url">{{ section.settings.text-btn }}</a>
+        <p>
+          {% render "arrow-right" %}
+        </p> 
+      </div> 
+    </div>  
+  </div>
+</div>
+
+{% schema %} 
+  {
+  "name": "Hero",
+  "class": "hero",
+  "settings": 
+  [
+    {
+      "type": "image_picker",
+      "id": "hero-bg-img",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "hero-title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "hero-text",
+      "label": "Text"
+    },
+    {
+     "type": "url",
+     "id": "btn-url",
+     "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "text-btn",
+      "label": "Button Text"
+     }
+  ]
+}
+{% endschema %}

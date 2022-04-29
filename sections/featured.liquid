@@ -1,0 +1,32 @@
+{{ "featured.css" | asset_url | stylesheet_tag }}
+{{ 'https://unpkg.com/swiper/swiper-bundle.min.css' | stylesheet_tag }}
+{{ 'https://unpkg.com/swiper/swiper-bundle.min.js' | script_tag }}
+
+
+<div class="featured">
+
+<div class="swiper">
+  <div class="swiper-wrapper">
+  {% for product in collections.frontpage.products %}
+  <div class="swiper-slide">  
+    <a href="{{ product.url | within: collection }}">
+      <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    </a>
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </div>
+{% endfor %}
+</div>
+  <div class="swiper-scrollbar"></div>
+</div>
+
+</div>
+
+<script>
+  var swiper = new Swiper(".swiper", {
+    slidesPerView: 4,
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+      });
+</script>

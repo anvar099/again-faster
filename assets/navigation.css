@@ -1,0 +1,39 @@
+.navigation {
+  width: 100%;
+  position: absolute;
+  top: 4rem;
+  left: 0;
+  height: 5.2rem;
+  display: flex;
+  align-items: center;
+}
+.navigation__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation__link-list {
+  display: flex;
+  list-style: none;
+  gap: 40px;
+}
+.navigation__link-url {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  letter-spacing: 0.175em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+}
+.navigation__logo {
+  padding-left: 40px;
+}
+.navigation__icon-list {
+  padding-right: 40px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}

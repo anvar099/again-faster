@@ -1,0 +1,29 @@
+{{ "navigation.css" | asset_url | stylesheet_tag }}
+
+<div class="container navigation__container">
+  <div>
+    <a href="{{ routes.logo_url }}" class="navigation__logo">
+      {% render "logo" %}
+    </a> 
+  </div>
+  <ul class="navigation__link-list">
+    {% for link in linklists.main-menu.links %}
+    <li>
+      <a href="{{ link.url }}" class="navigation__link-url">{{ link.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <ul class="navigation__icon-list">
+    <a href="{{ routes.search_url }}" class="navigatin__icon">
+      {% render "icon__search" %}
+    </a>
+    <a href="{{ routes.account_url }}" class="navigatin__icon">
+      {% render "icon__account" %}
+    </a>
+    <a href="{{ routes.cart_url }}" class="navigatin__icon">
+      {% render "icon__cart" %}
+    </a>
+  </ul>
+</div>
+
+{% schema %} { "name": "Navigation", "class": "navigation" } {% endschema %}
