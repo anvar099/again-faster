@@ -1,0 +1,63 @@
+{{ "banner.css" | asset_url | stylesheet_tag }}
+
+<div class="banner__container container">
+  <div class="banner__img-content">
+    <img src="{{ section.settings.banner-img-big | image_url }}" loading="lazy">
+  </div>
+  <div class="banner__description-content">
+    <div class="banner__description">
+      <img src="{{ section.settings.banner-img-small | image_url }}" loading="lazy">
+      <h3 class="banner__subtitle">{{ section.settings.banner-subtitle | escape }}</h3>
+      <h2 class="banner__title">{{ section.settings.banner-title | escape }}</h2>
+      <p class="banner__text">{{ section.settings.banner-text | escape }}</p>
+      <div class="banner__btn">
+        <a class="banner__btn__url" href="{{ section.settings.banner-btn-url}}">{{ section.settings.banner-btn-text}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Banner",
+    "class": "banner",
+    "settings": 
+    [
+      {
+        "type": "image_picker",
+        "id": "banner-img-big",
+        "label": "Image Big"
+      },
+      {
+        "type": "image_picker",
+        "id": "banner-img-small",
+        "label": "Image Small"
+      },
+      {
+        "type": "text",
+        "id": "banner-subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "banner-title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "banner-text",
+        "label": "Text"
+      },
+      {
+        "type": "text",
+        "id": "banner-btn-text",
+        "label": "Button Text"
+      },
+      {
+        "type": "url",
+        "id": "banner-btn-url",
+        "label": "Button Url"
+      }
+    ]
+  }
+{% endschema %}

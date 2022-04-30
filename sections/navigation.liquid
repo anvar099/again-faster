@@ -1,19 +1,21 @@
 {{ "navigation.css" | asset_url | stylesheet_tag }}
 
+<div class="navigation__bar {% if template.name != "index" %} navigation__container--relative {% endif %}">
 <div class="container navigation__container">
   <div>
-    <a href="{{ routes.logo_url }}" class="navigation__logo">
+    <a href="{{ routes.root_url }}" class="navigation__logo {% if template.name != "index" %} navigation__logo--dark {% endif %} ">
       {% render "logo" %}
     </a> 
   </div>
   <ul class="navigation__link-list">
     {% for link in linklists.main-menu.links %}
     <li>
-      <a href="{{ link.url }}" class="navigation__link-url">{{ link.title }}</a>
+      <a href="{{ link.url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
+        {{ link.title }}</a>
     </li>
     {% endfor %}
   </ul>
-  <ul class="navigation__icon-list">
+  <ul class="navigation__icon-list {% if template.name != "index" %} navigation__icon-list--dark {% endif %}">
     <a href="{{ routes.search_url }}" class="navigatin__icon">
       {% render "icon__search" %}
     </a>
@@ -24,6 +26,7 @@
       {% render "icon__cart" %}
     </a>
   </ul>
+</div>
 </div>
 
 {% schema %} { "name": "Navigation", "class": "navigation" } {% endschema %}

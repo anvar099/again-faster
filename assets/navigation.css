@@ -1,4 +1,4 @@
-.navigation {
+.navigation__bar{
   width: 100%;
   position: absolute;
   top: 4rem;
@@ -6,6 +6,9 @@
   height: 5.2rem;
   display: flex;
   align-items: center;
+}
+.navigation__container--relative {
+  position: unset;
 }
 .navigation__container {
   display: flex;
@@ -28,12 +31,22 @@
   color: #ffffff;
   text-decoration: none;
 }
+.navigation__link-url--dark {
+  color: black;
+}
 .navigation__logo {
   padding-left: 40px;
+}
+.navigation__logo--dark path{
+  padding-left: 40px;
+  fill: black;
 }
 .navigation__icon-list {
   padding-right: 40px;
   display: flex;
   gap: 20px;
   align-items: center;
+}
+.navigation__icon-list--dark path{
+  stroke: black;
 }
