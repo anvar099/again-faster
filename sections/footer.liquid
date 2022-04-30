@@ -1,0 +1,83 @@
+{{ "footer.css" | asset_url | stylesheet_tag }}
+{{ "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@200;300;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600&display=swap" | stylesheet_tag}}
+
+<div class="footer-container container">
+  <div class="footer-form">
+    <h3 class="footer__menu-title">{{ section.settings.footer-form-title | escape }}</h3>
+    <div>
+      <input type="email" placeholder="Enter your email">
+      <i class="arrow">
+        {% render "arrow-right" %}
+      </i> 
+    </div>
+    <div>
+      <i>
+        {% render "facebook" %}
+      </i> 
+      <i>
+        {% render "instagram" %}
+      </i> 
+      <i>
+        {% render "mail" %}
+      </i> 
+    </div>
+  </div>
+  <div class="footer__menu-container">
+    <div class="footer__menu-row">
+      <div class="footer__list">
+        <h3 class="footer__menu-title">{{ section.settings.footer-menu-title-one | escape }}</h3>
+        <ul class="footer__link-list">
+          {% for link in linklists.footer.links %}
+          <li>
+            <a href="{{ link.url }}" class="footer__link-url">
+              {{ link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="footer__list">
+        <h3 class="footer__menu-title">{{ section.settings.footer-menu-title-two | escape }}</h3>
+        <ul class="footer__link-list">
+          {% for link in linklists.footer-second-menu.links %}
+          <li>
+            <a href="{{ link.url }}" class="footer__link-url">
+              {{ link.title }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>  
+</div>
+<p class="footer-copyright">{{ section.settings.footer-copyright | escape }}</p>
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "class": "footer",
+    "settings": 
+    [
+      {
+        "type": "text",
+        "id": "footer-form-title",
+        "label": "Form Title"
+      },
+      {
+        "type": "text",
+        "id": "footer-menu-title-one",
+        "label": "Menu Title Column One"
+      },
+      {
+        "type": "text",
+        "id": "footer-menu-title-two",
+        "label": "Menu Title Column Two"
+      },
+      {
+        "type": "text",
+        "id": "footer-copyright",
+        "label": "Copyright Comment"
+      }
+    ]
+  }
+{% endschema %}

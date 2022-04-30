@@ -20,17 +20,15 @@
       "base.css" | asset_url | stylesheet_tag
     }}
     
-    <!-- {{
-      "application.js" | asset_url | script_tag
-    }} -->
   </head>
   <body class="{{ template.name }}">
     {% section "notification-bar" %} 
     {% section "navigation" %}
-    
 
     <main role="main">
       {{ content_for_layout }}
     </main>
+
+    {% section "footer" %}
   </body>
 </html>
