@@ -2,15 +2,18 @@
 {{ "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@200;300;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600&display=swap" | stylesheet_tag}}
 
 <div class="footer-container container">
+  <div class="footer__logo-bg">
+    <img class="footer__logo__bg-img" src="{{ section.settings.footer-logo-bg | image_url }}" alt="" loading="lazy">
+  </div>
   <div class="footer-form">
     <h3 class="footer__menu-title">{{ section.settings.footer-form-title | escape }}</h3>
-    <div>
-      <input type="email" placeholder="Enter your email">
+    <div class="footer__input-feild">
+      <input class="footer__input" type="email" placeholder="Enter your email">
       <i class="arrow">
         {% render "arrow-right" %}
       </i> 
     </div>
-    <div>
+    <div class="footer__social-media">
       <i>
         {% render "facebook" %}
       </i> 
@@ -58,6 +61,11 @@
     "class": "footer",
     "settings": 
     [
+      {
+        "type": "image_picker",
+        "id": "footer-logo-bg",
+        "label": "Background Logo"
+      },
       {
         "type": "text",
         "id": "footer-form-title",
