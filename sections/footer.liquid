@@ -1,9 +1,13 @@
-{{ "footer.css" | asset_url | stylesheet_tag }}
+{{ "style-footer.css" | asset_url | stylesheet_tag }}
 {{ "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@200;300;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600&display=swap" | stylesheet_tag}}
 
 <div class="footer-container container">
   <div class="footer__logo-bg">
-    <img class="footer__logo__bg-img" src="{{ section.settings.footer-logo-bg | image_url }}" alt="" loading="lazy">
+    {%- if section.settings.footer-logo-bg != blank -%}
+      <img class="footer__logo__bg-img" src="{{ section.settings.footer-logo-bg | image_url }}" alt="">
+    {%- else -%}
+      {{ 'logo-footer.png' | asset_url | img_tag }}
+    {%- endif -%}
   </div>
   <div class="footer-form">
     <h3 class="footer__menu-title">{{ section.settings.footer-form-title | escape }}</h3>
@@ -13,17 +17,23 @@
         {% render "arrow-right" %}
       </i> 
     </div>
-    <div class="footer__social-media">
-      <i>
-        {% render "facebook" %}
-      </i> 
-      <i>
-        {% render "instagram" %}
-      </i> 
-      <i>
-        {% render "mail" %}
-      </i> 
-    </div>
+    <ul class="footer__social-media">
+      <li class="list-social__item">
+        <a href="{{ section.settings.social_facebook_link }}" class="link list-social__link" >
+          {%- render 'facebook' -%}
+        </a>
+      </li>
+      <li class="list-social__item">
+        <a href="{{ section.settings.social_instagram_link }}" class="link list-social__link" >
+          {%- render 'instagram' -%}
+        </a>
+      </li>
+      <li class="list-social__item">
+        <a href="{{ section.settings.social_mail_link }}" class="link list-social__link" >
+          {%- render 'mail' -%}
+        </a>
+      </li>
+    </ul>
   </div>
   <div class="footer__menu-container">
     <div class="footer__menu-row">
@@ -69,7 +79,8 @@
       {
         "type": "text",
         "id": "footer-form-title",
-        "label": "Form Title"
+        "label": "Form Title",
+        "default": "Newsletter"
       },
       {
         "type": "text",
@@ -85,6 +96,21 @@
         "type": "text",
         "id": "footer-copyright",
         "label": "Copyright Comment"
+      },
+      {
+        "type": "url",
+        "id": "social_facebook_link",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "url",
+        "id": "social_instagram_link",
+        "label": "Instagram URL"
+      },
+      {
+        "type": "url",
+        "id": "social_mail_link",
+        "label": "Mail URL"
       }
     ]
   }

@@ -1,0 +1,33 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "hero-bg-img": "shopify:\/\/shop_images\/hero-bg.jpg",
+        "hero-title": "Team barbell",
+        "hero-text": "Team Barbell was to design a piece of equipment that matches the performance and quality of other elite level competition bars.",
+        "btn-url": "shopify:\/\/collections\/all",
+        "text-btn": "explore"
+      }
+    },
+    "featured": {
+      "type": "featured",
+      "settings": {}
+    },
+    "banner": {
+      "type": "banner",
+      "settings": {
+        "banner-subtitle": "Best seller",
+        "banner-title": "TRULY, AN ALL IN ONE BARBELL",
+        "banner-text": "Design that matches the performance and quality of other elite level competition bars",
+        "banner-btn-text": "Shop weights",
+        "banner-btn-url": "shopify:\/\/products\/squat-racks"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured",
+    "banner"
+  ]
+}

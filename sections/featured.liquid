@@ -1,4 +1,4 @@
-{{ "featured.css" | asset_url | stylesheet_tag }}
+{{ "style-featured.css" | asset_url | stylesheet_tag }}
 {{ "https://unpkg.com/swiper/swiper-bundle.min.css" | stylesheet_tag }}
 {{ "https://unpkg.com/swiper/swiper-bundle.min.js" | script_tag }}
 
@@ -14,11 +14,17 @@
             alt="{{ product.featured_image.alt | escape }}"
           />
         </a>
-        <a
+        <div class="featured__product-name">
+          <a
           class="featured__product__link"
           href="{{ product.url | within: collection }}"
           >{{ product.title }}</a
         >
+        <i>
+          {% render "arrow-right" %}
+        </i>
+        </div>
+        
       </div>
       {% endfor %}
     </div>
@@ -32,6 +38,7 @@
     scrollbar: {
       el: ".swiper-scrollbar",
       hide: true,
+      dragSize: 215
     },
   });
 </script>

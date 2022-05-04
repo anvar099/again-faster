@@ -1,4 +1,4 @@
-{{ 'hero.css' | asset_url | stylesheet_tag }}
+{{ 'style-hero.css' | asset_url | stylesheet_tag }}
 
 {% style %}
   .hero__container {
@@ -10,6 +10,7 @@
     width: 100%;
   }
 {% endstyle %}
+
 
 <div class="hero__container">
   <div class=" container">
@@ -40,23 +41,27 @@
     {
       "type": "text",
       "id": "hero-title",
-      "label": "Title"
+      "label": "Title",
+      "default": "Team barbell"
+      
     },
     {
       "type": "text",
       "id": "hero-text",
-      "label": "Text"
+      "label": "Text",
+      "default": "Team Barbell was to design a piece of equipment that matches the performance and quality of other elite level competition bars."
     },
     {
-     "type": "url",
-     "id": "btn-url",
-     "label": "Button URL"
+      "type": "url",
+      "id": "btn-url",
+      "label": "Button URL"
     },
     {
       "type": "text",
       "id": "text-btn",
-      "label": "Button Text"
-     }
+      "label": "Button Text",
+      "default": "explore"
+    }
   ]
 }
 {% endschema %}

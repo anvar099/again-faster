@@ -1,12 +1,20 @@
-{{ "banner.css" | asset_url | stylesheet_tag }}
+{{ "style-banner.css" | asset_url | stylesheet_tag }}
 
 <div class="banner__container container">
   <div class="banner__img-content">
-    <img src="{{ section.settings.banner-img-big | image_url }}" loading="lazy">
+    {%- if section.settings.banner-img-left != blank -%}
+      <img src="{{ section.settings.banner-img-left | image_url }}" alt="">
+    {%- else -%}
+      {{ 'big-img-banner.jpg' | asset_url | img_tag }}
+    {%- endif -%}
   </div>
   <div class="banner__description-content">
     <div class="banner__description">
-      <img src="{{ section.settings.banner-img-small | image_url }}" loading="lazy">
+      {%- if section.settings.banner-img-right != blank -%}
+        <img src="{{ section.settings.banner-img-right | image_url }}" alt="">
+      {%- else -%}
+        {{ 'small-img-banner.jpg' | asset_url | img_tag }}
+      {%- endif -%}
       <h3 class="banner__subtitle">{{ section.settings.banner-subtitle | escape }}</h3>
       <h2 class="banner__title">{{ section.settings.banner-title | escape }}</h2>
       <p class="banner__text">{{ section.settings.banner-text | escape }}</p>
@@ -25,12 +33,12 @@
     [
       {
         "type": "image_picker",
-        "id": "banner-img-big",
+        "id": "banner-img-left",
         "label": "Image Big"
       },
       {
         "type": "image_picker",
-        "id": "banner-img-small",
+        "id": "banner-img-right",
         "label": "Image Small"
       },
       {

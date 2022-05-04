@@ -1,10 +1,10 @@
-{{"notification-bar.css" | asset_url | stylesheet_tag }}   
+{{"style-notification-bar.css" | asset_url | stylesheet_tag }}   
 
 
 <div class="notification-bar__container">
-  <p class="notification-bar__text">
+  <a href="{{ section.settings.notification-url }}" class="notification-bar__text">
     {{section.settings.notificationId}}
-  </p>
+  </a>
 </div>
 
 {%  schema %}
@@ -16,7 +16,13 @@
         "id": "notificationId",
         "label": "Notification Text",
         "default": "20% OFF Sitewide until 9/12"
+      },
+      {
+        "type": "url",
+        "id": "notification-url",
+        "label": "Notification URL"
       }
     ]
+    
   }
 {% endschema %}

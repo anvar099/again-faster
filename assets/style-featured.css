@@ -12,10 +12,28 @@
   justify-content: center;
   align-items: center;
 }
+.featured__product__img {
+  width: 100%;
+}
+.featured__product-name {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+  cursor: pointer;
+}
 
+.featured__product-name i path {
+  fill: black;
+}
+.featured__product-name i {
+  margin-left: 9px;
+  display: none;
+}
+.featured__product__blog:hover .featured__product-name i {
+  display: block;
+}
 .featured__product__link {
   font-family: "Oswald";
-  margin-top: 8px;
   font-style: normal;
   font-weight: 300;
   font-size: 12px;
