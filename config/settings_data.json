@@ -1,6 +1,56 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "notification-bar": {
+        "type": "notification-bar",
+        "settings": {
+          "notificationId": "20% OFF Sitewide until 9\/12"
+        }
+      },
+      "hero": {
+        "type": "hero",
+        "settings": {
+          "hero-bg-img": "shopify:\/\/shop_images\/hero-bg.jpg",
+          "hero-title": "Team barbell",
+          "hero-text": "Team Barbell was to design a piece of equipment that matches the performance and quality of other elite level competition bars.",
+          "btn-url": "shopify:\/\/collections\/all",
+          "text-btn": "explore"
+        }
+      },
+      "navigation": {
+        "type": "navigation",
+        "settings": {}
+      },
+      "featured": {
+        "type": "featured",
+        "settings": {}
+      },
+      "banner": {
+        "type": "banner",
+        "settings": {
+          "banner-img-big": "shopify:\/\/shop_images\/Rectangle_27.jpg",
+          "banner-img-small": "shopify:\/\/shop_images\/Rectangle_28.jpg",
+          "banner-subtitle": "Best seller",
+          "banner-title": "TRULY, AN ALL IN ONE BARBELL",
+          "banner-text": "Design that matches the performance and quality of other elite level competition bars",
+          "banner-btn-text": "Shop weights",
+          "banner-btn-url": "shopify:\/\/products\/squat-racks"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "footer-logo-bg": "shopify:\/\/shop_images\/F.png",
+          "footer-form-title": "Newsletter",
+          "footer-menu-title-one": "Again faster",
+          "footer-menu-title-two": "Get help",
+          "footer-copyright": "©2020 Again Faster. All Rights Reserved"
+        }
+      }
+    },
+    "content_for_index": []
+  },
   "presets": {
-    "Default": { }
+    "Default": {}
   }
 }

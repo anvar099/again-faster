@@ -16,6 +16,7 @@
   max-height: 160px;
   left: 0;
   transform: translateY(30%);
+  z-index: -1;
 }
 .footer__logo__bg-img {
   width: 100%;
@@ -58,6 +59,7 @@
 }
 .footer__social-media i {
   margin-right: 20px;
+  cursor: pointer;
 }
 .footer__menu-container {
   width: 50%;
