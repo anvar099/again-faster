@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "hero": {
+      "type": "clp-hero",
+      "settings": {}
+    },
+    "collection": {
+      "type": "clp-collection",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "collection"
+  ]
+}

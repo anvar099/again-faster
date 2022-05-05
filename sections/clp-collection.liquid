@@ -1,0 +1,11 @@
+{{ "style-clp-collection.css" | asset_url | stylesheet_tag }}
+
+{% for product in collections.frontpage.products %}
+  <div> 
+    <a href="{{ product.url | within: collection }}">
+      <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    </a>
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+  </div>
+{% endfor %}
+
