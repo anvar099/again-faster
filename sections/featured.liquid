@@ -5,20 +5,20 @@
 <div class="featured">
   <div class="swiper container">
     <div class="swiper-wrapper featured__slider__container">
-      {% for product in collections.frontpage.products %}
+      {% for block in section.blocks %}
       <div class="swiper-slide featured__product__blog">
-        <a href="{{ product.url | within: collection }}">
+        <a href="{{ block.settings.collection.url | within: collection }}">
           <img
             class="featured__product__img"
-            src="{{ product.featured_image.src | img_url: 'large' }}"
-            alt="{{ product.featured_image.alt | escape }}"
+            src="{{ block.settings.collection.featured_image.src | img_url: 'large' }}"
+            alt="{{ block.settings.collection.featured_image.alt | escape }}"
           />
         </a>
         <div class="featured__product-name">
           <a
           class="featured__product__link"
-          href="{{ product.url | within: collection }}"
-          >{{ product.title }}</a
+          href="{{ block.settings.collection.url | within: collection }}"
+          >{{ block.settings.collection.title }}</a
         >
         <i>
           {% render "arrow-right" %}
@@ -42,3 +42,29 @@
     },
   });
 </script>
+
+{% schema %}
+{
+  "name": "collections",
+  "class": "collections",
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Sliders",
+      "name":"Collections Slider"
+    }
+  ]
+}
+{% endschema %}

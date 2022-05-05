@@ -12,17 +12,65 @@
     },
     "featured": {
       "type": "featured",
+      "blocks": {
+        "510304b9-027a-4753-9505-a143d76ecae3": {
+          "type": "collection",
+          "settings": {
+            "collection": "accessories"
+          }
+        },
+        "74dc7218-cf38-4591-a5e0-b580d2178e8f": {
+          "type": "collection",
+          "settings": {
+            "collection": "bumper-plates"
+          }
+        },
+        "d1e92071-0bdf-4d33-a78f-756b10ed7b53": {
+          "type": "collection",
+          "settings": {
+            "collection": "medicine-balls"
+          }
+        },
+        "9611f9dd-6279-4482-a2c5-22043a1b8d7f": {
+          "type": "collection",
+          "settings": {
+            "collection": "weights"
+          }
+        },
+        "45df9dd8-f610-465a-9013-483ab6db9ebf": {
+          "type": "collection",
+          "settings": {
+            "collection": "squat-stand-racks"
+          }
+        }
+      },
+      "block_order": [
+        "510304b9-027a-4753-9505-a143d76ecae3",
+        "74dc7218-cf38-4591-a5e0-b580d2178e8f",
+        "d1e92071-0bdf-4d33-a78f-756b10ed7b53",
+        "9611f9dd-6279-4482-a2c5-22043a1b8d7f",
+        "45df9dd8-f610-465a-9013-483ab6db9ebf"
+      ],
       "settings": {}
     },
     "banner": {
       "type": "banner",
-      "settings": {
-        "banner-subtitle": "Best seller",
-        "banner-title": "TRULY, AN ALL IN ONE BARBELL",
-        "banner-text": "Design that matches the performance and quality of other elite level competition bars",
-        "banner-btn-text": "Shop weights",
-        "banner-btn-url": "shopify:\/\/products\/squat-racks"
-      }
+      "blocks": {
+        "03209b53-a17a-4ad6-b481-59ff39850c9f": {
+          "type": "Banner",
+          "settings": {
+            "banner-subtitle": "Best seller",
+            "banner-title": "TRULY, AN ALL IN ONE BARBELL",
+            "banner-text": "Design that matches the performance and quality of other elite level competition bars",
+            "banner-btn-text": "Shop weights",
+            "banner-btn-url": ""
+          }
+        }
+      },
+      "block_order": [
+        "03209b53-a17a-4ad6-b481-59ff39850c9f"
+      ],
+      "settings": {}
     }
   },
   "order": [

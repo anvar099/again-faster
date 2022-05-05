@@ -1,70 +1,77 @@
 {{ "style-banner.css" | asset_url | stylesheet_tag }}
 
+{% for block in section.blocks %}
 <div class="banner__container container">
   <div class="banner__img-content">
-    {%- if section.settings.banner-img-left != blank -%}
-      <img src="{{ section.settings.banner-img-left | image_url }}" alt="">
+    {%- if block.settings.banner-img-left != blank -%}
+      <img src="{{ block.settings.banner-img-left | image_url }}" alt="">
     {%- else -%}
       {{ 'big-img-banner.jpg' | asset_url | img_tag }}
     {%- endif -%}
   </div>
   <div class="banner__description-content">
     <div class="banner__description">
-      {%- if section.settings.banner-img-right != blank -%}
-        <img src="{{ section.settings.banner-img-right | image_url }}" alt="">
+      {%- if block.settings.banner-img-right != blank -%}
+        <img src="{{ block.settings.banner-img-right | image_url }}" alt="">
       {%- else -%}
         {{ 'small-img-banner.jpg' | asset_url | img_tag }}
       {%- endif -%}
-      <h3 class="banner__subtitle">{{ section.settings.banner-subtitle | escape }}</h3>
-      <h2 class="banner__title">{{ section.settings.banner-title | escape }}</h2>
-      <p class="banner__text">{{ section.settings.banner-text | escape }}</p>
+      <h3 class="banner__subtitle">{{ block.settings.banner-subtitle | escape }}</h3>
+      <h2 class="banner__title">{{ block.settings.banner-title | escape }}</h2>
+      <p class="banner__text">{{ block.settings.banner-text | escape }}</p>
       <div class="banner__btn">
-        <a class="banner__btn__url" href="{{ section.settings.banner-btn-url}}">{{ section.settings.banner-btn-text}}</a>
+        <a class="banner__btn__url" href="{{ block.settings.banner-btn-url}}">{{ block.settings.banner-btn-text}}</a>
       </div>
     </div>
   </div>
 </div>
+{% endfor %}
 
 {% schema %}
   {
     "name": "Banner",
     "class": "banner",
-    "settings": 
-    [
+    "blocks": [
       {
-        "type": "image_picker",
-        "id": "banner-img-left",
-        "label": "Image Big"
-      },
-      {
-        "type": "image_picker",
-        "id": "banner-img-right",
-        "label": "Image Small"
-      },
-      {
-        "type": "text",
-        "id": "banner-subtitle",
-        "label": "Subtitle"
-      },
-      {
-        "type": "text",
-        "id": "banner-title",
-        "label": "Title"
-      },
-      {
-        "type": "text",
-        "id": "banner-text",
-        "label": "Text"
-      },
-      {
-        "type": "text",
-        "id": "banner-btn-text",
-        "label": "Button Text"
-      },
-      {
-        "type": "url",
-        "id": "banner-btn-url",
-        "label": "Button Url"
+        "name": "Banner",
+        "type": "Banner" ,
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "banner-img-left",
+            "label": "Image Big"
+          },
+          {
+            "type": "image_picker",
+            "id": "banner-img-right",
+            "label": "Image Small"
+          },
+          {
+            "type": "text",
+            "id": "banner-subtitle",
+            "label": "Subtitle"
+          },
+          {
+            "type": "text",
+            "id": "banner-title",
+            "label": "Title"
+          },
+          {
+            "type": "text",
+            "id": "banner-text",
+            "label": "Text"
+          },
+          {
+            "type": "text",
+            "id": "banner-btn-text",
+            "label": "Button Text"
+          },
+          {
+            "type": "url",
+            "id": "banner-btn-url",
+            "label": "Button Url"
+          }
+        ]
       }
     ]
   }

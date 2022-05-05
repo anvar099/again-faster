@@ -1,7 +1,7 @@
 .navigation__bar{
   width: 100%;
   position: absolute;
-  top: 4rem;
+  /* top: 4rem; */
   left: 0;
   height: 5.2rem;
   display: flex;

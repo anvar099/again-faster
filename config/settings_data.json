@@ -3,10 +3,19 @@
     "sections": {
       "notification-bar": {
         "type": "notification-bar",
-        "settings": {
-          "notificationId": "20% OFF Sitewide until 9\/12",
-          "notification-url": ""
-        }
+        "blocks": {
+          "abeb49ed-2763-4d0d-915d-be02c7c22a17": {
+            "type": "Notification",
+            "settings": {
+              "notificationId": "20% OFF Sitewide until 9\/12",
+              "notification-url": ""
+            }
+          }
+        },
+        "block_order": [
+          "abeb49ed-2763-4d0d-915d-be02c7c22a17"
+        ],
+        "settings": {}
       },
       "navigation": {
         "type": "navigation",

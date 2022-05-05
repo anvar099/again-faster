@@ -1,28 +1,41 @@
 {{"style-notification-bar.css" | asset_url | stylesheet_tag }}   
 
+{% for block in section.blocks %}
+  <div class="notification-bar__container">
+    <a href="{{ block.settings.notification-url }}" class="notification-bar__text">
+      {{ block.settings.notificationId }}
+    </a>
+  </div>
+{% endfor %}
 
-<div class="notification-bar__container">
-  <a href="{{ section.settings.notification-url }}" class="notification-bar__text">
-    {{section.settings.notificationId}}
-  </a>
-</div>
 
 {%  schema %}
   {
     "name": "Notification Bar",
-    "settings": [
+    "blocks": [
       {
-        "type": "text",
-        "id": "notificationId",
-        "label": "Notification Text",
-        "default": "20% OFF Sitewide until 9/12"
-      },
+        "type": "Notification",
+        "name": "Notification",
+        "settings": [
+          {
+            "type": "text",
+            "id": "notificationId",
+            "label": "Notification Text",
+            "default": "20% OFF Sitewide until 9/12"
+          },
+          {
+            "type": "url",
+            "id": "notification-url",
+            "label": "Notification URL"
+          }
+        ]
+      }
+    ],
+    "presets": [
       {
-        "type": "url",
-        "id": "notification-url",
-        "label": "Notification URL"
+        "category": "Notification bar",
+        "name": "Notification Bar"
       }
     ]
-    
   }
 {% endschema %}
