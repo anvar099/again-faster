@@ -1,0 +1,23 @@
+{{ "style-clp-hero.css" | asset_url | stylesheet_tag }}
+
+
+<div class="clp__container container">
+  <div class="clp__description-container">
+    <h3 class="clp__descrition__eyebrow">{{ collection.metafields.accentuate.eyebrow }}</h3>
+    <h1 class="clp__description__title">{{ collection.metafields.accentuate.title }}</h1>
+    <div class="clp__description__btn">
+      <a class="clp__description__btn-url" href="{{ collection.metafields.accentuate.url }}">{{ collection.metafields.accentuate.label }}</a>
+      <i class="clp__description__btn-arrow"> 
+        {% render "arrow-right" %}
+      </i>
+    </div>
+  </div>
+  <div class="clp__img-container"> 
+    <div class="clp__img__large">
+      <img class="clp__img__large-self" src="{{ collection.metafields.accentuate.image_1[0].src }}" alt="">
+    </div>
+    <div class="clp__img__small">
+      <img class="clp__img__small-self" src="{{ collection.metafields.accentuate.image_2[0].src }}" alt="">
+    </div>
+  </div>
+</div>
