@@ -1,0 +1,14 @@
+{{ "style-clp-collection.css" | asset_url | stylesheet_tag }}
+
+<div class="clp-collection__container container">
+  {% assign collectionsAll = collection.metafields.accentuate.collection_array | split: '|' %} 
+  {% for collectionItem in collectionsAll %}
+    <div class="clp-collection__product"> 
+      <a class="clp-collection__product__img-content" href="{{ collections[collectionItem].url }}">
+        <img class="clp-collection__product__img" src="{{ collections[collectionItem].image | image_url }}" alt="">
+        <span class="clp-collection__product__name">{{ collections[collectionItem].title }}</span>
+      </a>
+      
+    </div>
+  {% endfor %}
+</div>
