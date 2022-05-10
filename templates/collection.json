@@ -1,0 +1,31 @@
+{
+  "sections": {
+    "collection": {
+      "type": "collection-list",
+      "blocks": {
+        "0053ddd2-8755-43c3-a2dd-a1be40abb4ec": {
+          "type": "text",
+          "settings": {
+            "collection_list": [
+              "accessories",
+              "medicine-balls",
+              "barbells",
+              "bumper-plates",
+              "gdc",
+              "medicine-balls-1",
+              "squat-stand-racks",
+              "weights"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "0053ddd2-8755-43c3-a2dd-a1be40abb4ec"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "collection"
+  ]
+}

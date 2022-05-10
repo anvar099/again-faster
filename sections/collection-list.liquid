@@ -1,0 +1,55 @@
+{{ "style-collection-list.css" | asset_url | stylesheet_tag }}
+
+{% assign param = collection.handle %}
+<h1 class="collection-list__title">{{ collection.title }}</h1>
+<div class="collection-list__header container">
+  
+  {% for item in section.blocks[0].settings.collection_list %}
+  <li class="collection-list__header__item">
+    <a class="collection-list__header__link  {% if param == item.handle %} active {% endif %}"
+    href="{{ item.url }}">{{ item.title }} </a>
+  </li>
+  
+
+  {% endfor %}
+</div>
+{% paginate collection.products %} 
+  {% for product in collection.products %}
+    <div>
+      <a href="{{ product.url | within: collection }}">
+        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+      </a>
+      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      {{ product.price | money }}
+    </div>
+  {% endfor %}
+  {% if paginate.pages > 1 %}
+    {{ paginate | default_pagination }}
+  {% endif %}
+{% endpaginate %}
+
+
+
+{% schema %}
+  {
+    "name": "collection-list",
+    "class": "cllection",
+    "blocks": [
+      {   
+        "name": "collection-list",
+        "type": "text",
+        "settings": [
+          {
+            "type": "collection_list",
+            "id": "collection_list",
+            "label": "Collection List"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+<!-- 
+<p>no matches</p>
+{% unless product.available %}<br><strong>sold out</strong>{% endunless %} -->
