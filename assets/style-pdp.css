@@ -36,3 +36,7 @@
   max-width: 440px;
   margin: 0 auto;
 }
+.product__rating {
+  display: flex;
+  gap: 4px;
+}

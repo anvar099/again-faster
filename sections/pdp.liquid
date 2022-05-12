@@ -21,30 +21,74 @@
 
 <div class="product__info-container">
   <h1>{{ product.title }}</h1>
-  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-    <select name="id" id="productSelect">
-      {% for variant in product.variants %}
-        {% if variant.available %}
-          <option value="{{ variant.id }}">
-            {{ variant.title }} - {{ variant.price | money_with_currency }}
-          </option>
-        {% else %}
-          <option disabled="disabled">
-            {{ variant.title }} - sold out
-          </option>
-        {% endif %}
+  {{ current_variant.price | money }}
+  <div>
+    <div class="product__rating">
+      {% assign rating = product.metafields.my_fields.rating.value.rating %}
+      {% for i in (1..rating) %}
+        {% render "star" %}
       {% endfor %}
-    </select>
-    {{ current_variant.price | money }}
-    <label for="Quantity">quantity</label>
-    <input type="number" id="Quantity" name="quantity" value="1" min="1">
-    <button type="submit" name="add" id="AddToCart">Add to cart</button>
-  </form>
-  <div>{{ product.description }}</div>
+    </div>
+    <p>
+      {{ section.settings.text-reviews | escape}}
+    </p>
+</div>
+<div>
+  <img src="{{ section.settings.logo-affirm-img | image_url }}" alt="">
+  <p>
+    {{ section.settings.text-per-month-sale | escape}}
+  </p>
+</div>
+<div>{{ product.description }}</div>
+{% form "product", product %}
+{% for variant in product.variants %}
+  {% if variant.available %}
+    <input type="radio" name="id" selected="selected" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money_with_currency }}">
+    <label for="{{ variant.id }}">{{ variant.title }}</label>
+  {% else %}
+  <input type="radio" name="id" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money_with_currency }}" disabled>
+  <label for="{{ variant.id }}" class="disabled">{{ variant.title }}</label>
+  {% endif %}
+{% endfor %}
+<input type="hidden" name="quantity" value="1" min="1">
+<!-- <input type="hidden" name="id" value="1" min="1"> -->
+  <button type="submit" name="add" id="AddToCart">Add to cart</button>
+{% endform %}
+
+
   </div>
 </div>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+{% schema %} 
+  {
+  "settings": 
+  [
+    {
+      "type": "text",
+      "id": "text-reviews",
+      "label": "Rating Reviews"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo-affirm-img",
+      "label": "Logo Per Month Price"
+    },
+    {
+      "type": "text",
+      "id": "text-per-month-sale",
+      "label": "Text Per Month Sale"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
   var swiper = new Swiper(".mySwiper", {
     direction: "vertical",
