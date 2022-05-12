@@ -3,7 +3,6 @@
 {% assign param = collection.handle %}
 <h1 class="collection-list__title">{{ collection.title }}</h1>
 <div class="collection-list__header container">
-  
   {% for item in section.blocks[0].settings.collection_list limit: 8 %}
   <li class="collection-list__header__item">
     <a class="collection-list__header__link  {% if param == item.handle %} active {% endif %}"
@@ -19,11 +18,33 @@
 {% paginate collection.products %} 
   {% for product in collection.products %}
     <div class="collection-list__product">
+      <div class="goods__tag-container">
+      {% for tag in product.tags %}
+        {% if tag contains 'Sale' %}     
+          <span class="goods__sale  goods__tag">{{tag}}</span>    
+        {% endif %}
+        {% if tag contains 'Free Shipping' %}     
+          <span class="goods__free-shipping goods__tag">{{tag}}</span>
+        {% endif %}
+        {% if tag contains 'Best Seller' %}
+          <span class="goods__best-seller goods__tag">{{tag}}</span>
+        {% endif %}
+        {% if tag contains 'Pre-Order' %}
+          <span class="goods__pre-order goods__tag">{{tag}}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
       <a href="{{ collection.tags }}"></a>
       <a class="collection-list__product__img-parent" href="{{ product.url | within: collection }}">
         <img class="collection-list__product-img" src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
       </a>
       <a class="collection-list__product-name" href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      <div class="product__rating">
+        {% assign rating = product.metafields.my_fields.rating.value.rating %}
+        {% for i in (1..rating) %}
+          {% render "star" %}
+        {% endfor %}
+      </div>
       <p class="collection-list__product-price">{{ product.price | money }}</p>
     </div>
   {% endfor %}

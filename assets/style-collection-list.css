@@ -15,7 +15,7 @@
   align-self: center;
   justify-content: center;
   gap: 16px;
-  margin-bottom: 47px;
+  margin-bottom: 17px;
 }
 .collection-list__header__link {
   font-family: 'Open Sans';
@@ -53,13 +53,14 @@
 
 .collection-list__product-row {
   display: grid;
-  padding: 0 40px;
+  padding: 40px;
   gap: 34px 16px;
   grid-template-columns: 1fr 1fr 1fr; 
 }
 .collection-list__product {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 .collection-list__product__img-parent {
   width: 100%;
@@ -96,4 +97,46 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: #353535;
+}
+.goods__tag-container {
+  display: flex;
+  position: absolute;
+  left: 15px;
+  gap: 8px;
+  top: 12px;
+}
+.goods__tag {
+  width: 90px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 167.5%;
+  text-align: center;
+}
+.goods__tag.goods__free-shipping {
+  background-color: white;
+  color: black;
+}
+.goods__tag.goods__sale {
+  background-color: #9E0404;
+  color: white;
+}
+.goods__tag.goods__best-seller {
+  background-color: black;
+  color: white;
+}
+.goods__tag.goods__pre-order {
+  background-color: transparent;
+  color: black;
+  border: 1px solid #C4C4C4;
+}
+.product__rating {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
 }
