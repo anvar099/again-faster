@@ -1,4 +1,4 @@
-{{ "style-pdp.css" | asset_url | stylesheet_tag }}
+{{ "style-pdp-product-details.css" | asset_url | stylesheet_tag }}
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 
@@ -20,42 +20,57 @@
 
 
 <div class="product__info-container">
-  <h1>{{ product.title }}</h1>
-  {{ current_variant.price | money }}
-  <div>
+  <h1 class="product__title">{{ product.title }}</h1>
+  <p class="product__price">{{ current_variant.price | money }}</p>
+  <div class="product__rate">
     <div class="product__rating">
       {% assign rating = product.metafields.my_fields.rating.value.rating %}
       {% for i in (1..rating) %}
         {% render "star" %}
       {% endfor %}
     </div>
-    <p>
+    <p class="rating__review">
       {{ section.settings.text-reviews | escape}}
     </p>
 </div>
-<div>
+<div class="product__price-monthly">
   <img src="{{ section.settings.logo-affirm-img | image_url }}" alt="">
   <p>
     {{ section.settings.text-per-month-sale | escape}}
   </p>
 </div>
-<div>{{ product.description }}</div>
+<div class="product__description">{{ product.description }}</div>
+
+
 {% form "product", product %}
+<div class="product__options">
 {% for variant in product.variants %}
   {% if variant.available %}
-    <input type="radio" name="id" selected="selected" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money_with_currency }}">
-    <label for="{{ variant.id }}">{{ variant.title }}</label>
+    <input class="option__input" type="radio" name="id" selected="selected" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money_with_currency }}">
+    <label class="option__label" for="{{ variant.id }}">{{ variant.title }}lb Single</label>
   {% else %}
-  <input type="radio" name="id" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money_with_currency }}" disabled>
-  <label for="{{ variant.id }}" class="disabled">{{ variant.title }}</label>
+  <input class="option__input" type="radio" name="id" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money_with_currency }}" disabled>
+  <label class="option__label label-disabled" for="{{ variant.id }}" class="disabled">{{ variant.title }}lb Single</label>
   {% endif %}
 {% endfor %}
+</div>
 <input type="hidden" name="quantity" value="1" min="1">
-<!-- <input type="hidden" name="id" value="1" min="1"> -->
-  <button type="submit" name="add" id="AddToCart">Add to cart</button>
+  <!-- <div class="btn__add-to-cart"> -->
+    <button class="btn__add-to-cart" type="submit" name="add" id="AddToCart">Add to cart</button>
+  <!-- </div> -->
 {% endform %}
-
-
+<div class="line-horyzontal"></div>
+    <h3 class="frequently__title">Frequently bought with</h3>
+    <div class="frequently__row">
+      {% assign pr = product.metafields.accentuate.recommended | split: '|' %}
+      {% for item in pr %}
+      <img src="{{ all_products[item] | image_url: width: 300 }}" alt="">
+      <div class="frequently__description">
+        <p>{{ all_products[item].title }}</p>
+        <a href="{{ all_products[item].url }}">Add to Cart</a>
+      </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 

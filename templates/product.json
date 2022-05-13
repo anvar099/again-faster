@@ -1,15 +1,20 @@
 {
   "sections": {
     "product": {
-      "type": "pdp",
+      "type": "pdp-product-details",
       "settings": {
         "text-reviews": "18 reviews",
         "logo-affirm-img": "shopify:\/\/shop_images\/image_1.png",
         "text-per-month-sale": "pay as low as 56\/mo Learn More"
       }
+    },
+    "recommend-product": {
+      "settings": {},
+      "type": "recommend-product"
     }
   },
   "order": [
-    "product"
+    "product",
+    "recommend-product"
   ]
 }
