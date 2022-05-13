@@ -8,6 +8,10 @@
         "text-per-month-sale": "pay as low as 56\/mo Learn More"
       }
     },
+    "product-info": {
+      "settings": {},
+      "type": "product-info"
+    },
     "recommend-product": {
       "settings": {},
       "type": "recommend-product"
@@ -15,6 +19,7 @@
   },
   "order": [
     "product",
+    "product-info",
     "recommend-product"
   ]
 }

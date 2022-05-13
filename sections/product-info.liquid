@@ -1,0 +1,8 @@
+{{ "style-product-info.css" | asset_url | stylesheet_tag }}
+
+<div class="container">
+  {% for html in product.metafields.accentuate.text %}
+    {{product.metafields.accentuate[html.metafield][html.index]}}
+    <img src="{{ product.metafields.accentuate.image[forloop.index0][0].src }}" alt="product_image">
+  {% endfor %}
+</div>
