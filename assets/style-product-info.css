@@ -1,1 +1,31 @@
 /* .info:nth-child(1) */
+
+.product__info__container {
+  /* background-color: #000000; */
+}
+.product__info__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+}
+.product__info-text__container {
+  width: 100%;
+  border: 2px solid red;
+}
+.product__info-img {
+  width: 100%;
+  border: 2px solid yellow;
+}
+img {
+  width: 100%;
+}
+.product__info__row:nth-child(1) h1 {
+  color: red;
+}
+.product__info__row:nth-child(1) ul li {
+  color: blue;
+}
+
+.product__info__row:nth-child(1) ul li:nth-child(1) {
+  color: green;
+}

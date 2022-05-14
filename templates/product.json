@@ -9,12 +9,12 @@
       }
     },
     "product-info": {
-      "settings": {},
-      "type": "product-info"
+      "type": "product-info",
+      "settings": {}
     },
     "recommend-product": {
-      "settings": {},
-      "type": "recommend-product"
+      "type": "recommend-product",
+      "settings": {}
     }
   },
   "order": [

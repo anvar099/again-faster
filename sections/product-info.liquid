@@ -1,8 +1,21 @@
 {{ "style-product-info.css" | asset_url | stylesheet_tag }}
 
 <div class="container">
-  {% for html in product.metafields.accentuate.text %}
-    {{product.metafields.accentuate[html.metafield][html.index]}}
-    <img src="{{ product.metafields.accentuate.image[forloop.index0][0].src }}" alt="product_image">
-  {% endfor %}
+  <div class="product__info__row">
+    {% for html in product.metafields.accentuate.text %}
+    <div class="product__info-text__container">
+      <div class="product__info-text">{{product.metafields.accentuate[html.metafield][html.index]}}</div>
+    </div>
+      <div class="product__info-img">
+        <img class="info__img" src="{{ product.metafields.accentuate.image[forloop.index0][0].src }}" alt="product_image">
+      </div>
+    {% endfor %}
+  </div>
 </div>
+
+{% schema %}
+{
+  "name": "product info",
+  "class": "product__info__container"
+}
+{% endschema %}
