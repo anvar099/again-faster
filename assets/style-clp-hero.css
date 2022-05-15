@@ -22,6 +22,11 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
+.clp__descrition__eyebrow::before {
+  content: "/";
+  color: #C2A578;
+  padding-right: 5px;
+}
 .clp__description__title {
   font-family: 'Open Sans';
   font-style: normal;

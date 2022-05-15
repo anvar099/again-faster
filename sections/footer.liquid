@@ -9,14 +9,34 @@
       {{ 'logo-footer.png' | asset_url | img_tag }}
     {%- endif -%}
   </div>
+  {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
   <div class="footer-form">
     <h3 class="footer__menu-title">{{ section.settings.footer-form-title | escape }}</h3>
     <div class="footer__input-feild">
-      <input class="footer__input" type="email" placeholder="Enter your email">
-      <i class="arrow">
+      <input class="footer__input" type="email" placeholder="Enter your email" id="NewsletterForm--{{ section.id }}"
+      type="email"
+      name="contact[email]"
+      class="field__input"
+      value="{{ form.email }}"
+      aria-required="true"
+      autocorrect="off"
+      autocapitalize="off"
+      autocomplete="email"
+      {% if form.errors %}
+        autofocus
+        aria-invalid="true"
+        aria-describedby="ContactFooter-error"
+      {% elsif form.posted_successfully? %}
+        aria-describedby="ContactFooter-success"
+      {% endif %}
+      placeholder="{{ 'newsletter.label' | t }}"
+      required>
+      <button class="arrow" type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
         {% render "arrow-right" %}
-      </i> 
+      </button>
+      
     </div>
+    {%- endform -%}
     <ul class="footer__social-media">
       <li class="list-social__item">
         <a href="{{ section.settings.social_facebook_link }}" class="link list-social__link" >

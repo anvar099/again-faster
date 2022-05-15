@@ -33,7 +33,7 @@
   position: relative;
   list-style: none;
 }
-.collection-list__header__item::after {
+.collection-list__header__item:not(:last-child):after {
   content: "/";
   position: absolute;
   right: -10px;
