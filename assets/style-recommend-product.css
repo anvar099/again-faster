@@ -32,6 +32,10 @@
   width: 100%;
   object-fit: cover;
 }
+.collection-list__product-img:hover {
+  transform: scale(0.9);
+  transition: 0.6s;
+}
 .collection-list__product-name {
   font-family: 'Oswald';
   font-style: normal;

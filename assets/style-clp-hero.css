@@ -45,19 +45,31 @@
   width: 236px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   justify-content: space-around;
+}
+.clp__description__btn:hover {
+  background-color: #000000;
+  transition: 0.4s;
+}
+.clp__description__btn:hover .clp__description__btn-url{
+  color: #ffffff;
+}
+.clp__description__btn:hover .clp__description__btn-arrow path{
+  fill: #ffffff;
 }
 .clp__description__btn-url {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
+  color:#000000;
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.175em;
   text-transform: uppercase;
-  color: #000000;
   text-decoration: none;
 }
+
 .clp__description__btn-arrow path{
   fill: black;
 }

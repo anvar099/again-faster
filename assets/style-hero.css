@@ -38,6 +38,16 @@
   padding: 0 24px;
   margin: 40px 0;
 }
+.hero__btn:hover {
+  background-color: #ffffff;
+  transition: 0.4s;
+}
+.hero__btn:hover .hero__btn-url {
+  color: #000000;
+}
+.hero__btn:hover i path{
+  fill: #000000;
+}
 .hero__btn-url {
   font-family: "Open Sans";
   font-style: normal;
