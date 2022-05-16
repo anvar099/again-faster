@@ -11,6 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: 0.3s;
 }
 .featured__product__img {
   width: 100%;
@@ -27,23 +28,19 @@
 }
 .featured__product-name i {
   margin-left: 9px;
-  display: none;
+  /* display: none; */
 }
 .featured__product__blog:hover .featured__product-name i {
- 
-  visibility:visible;
+  opacity: 1;
+  transform: translate(0);
 }
 .featured__product__blog .featured__product-name i {
-  visibility:hidden;
-  display: block;
-  transition: ease-in 0.3s;
+  opacity: 0;
+  transform: translate(-1rem);
+  transition: .5s;
+  
 }
-.edit_hover_class a{
-  visibility:hidden;
-}
-.edit_hover_class:hover a {
- visibility:visible;
-}
+
 .featured__product__link {
   font-family: "Oswald";
   font-style: normal;

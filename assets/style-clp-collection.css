@@ -18,6 +18,8 @@
   width: 100%;
   max-height: 334px;
   height: 100%;
+  transition: 0.3s;
+  text-decoration: none;
 }
 .clp-collection__product__img {
   object-fit: cover;
@@ -36,4 +38,17 @@
   color: #000000;
   text-decoration: none;
   margin-top: 8px;
+}
+.clp-collection__product__img-content i path {
+  fill: #000000;
+}
+.clp-collection__product__img-content i {
+  margin-left: 9px;
+  opacity: 0;
+  transform: translate(-1rem);
+  transition: .5s;
+}
+.clp-collection__product__img-content:hover i {
+  opacity: 1;
+  transform: translate(0);
 }
