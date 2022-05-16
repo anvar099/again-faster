@@ -18,8 +18,11 @@
   width: 100%;
   max-height: 334px;
   height: 100%;
-  transition: 0.3s;
+  transition: 0.6s;
   text-decoration: none;
+}
+.clp-collection__product__img-content:hover{
+  transform: scale(1.1);
 }
 .clp-collection__product__img {
   object-fit: cover;

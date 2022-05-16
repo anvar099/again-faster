@@ -10,7 +10,7 @@
   <div class="swiper-wrapper">
     {% for image in product.images %}
     <div class="swiper-slide">  
-      <img src="{{ image.src | img_url: "large" }}" alt="{{ image.alt | escape }}">
+      <img src="{{ image.src | image_url }}" alt="{{ image.alt | escape }}">
     </div>
     {% endfor %}
   </div>
@@ -21,7 +21,7 @@
 
 <div class="product__info-container">
   <h1 class="product__title">{{ product.title }}</h1>
-  <p class="product__price">{{ current_variant.price | money }}</p>
+  <p class="product__price">{{ product.price | money }}</p>
   <div class="product__rate">
     <div class="product__rating">
       {% assign rating = product.metafields.my_fields.rating.value.rating %}
@@ -46,10 +46,10 @@
 <div class="product__options">
 {% for variant in product.variants %}
   {% if variant.available %}
-    <input class="option__input" type="radio" name="id" selected="selected" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money_with_currency }}">
+    <input class="option__input" type="radio" name="id"  selected="selected" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money }}">
     <label class="option__label" for="{{ variant.id }}">{{ variant.title }}lb Single</label>
   {% else %}
-  <input class="option__input" type="radio" name="id" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money_with_currency }}" disabled>
+  <input class="option__input" type="radio" name="id" value="{{ variant.id }}" id="{{ variant.id }}" price="{{ variant.price | money }}" disabled>
   <label class="option__label label-disabled" for="{{ variant.id }}" class="disabled">{{ variant.title }}lb Single</label>
   {% endif %}
 {% endfor %}
@@ -100,9 +100,6 @@
 
 
 
-
-
-
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
   var swiper = new Swiper(".mySwiper", {
@@ -114,4 +111,10 @@
       clickable: true,
     },
   });
+</script>
+
+<script>
+  document.querySelector(".product").addEventListener("change", e => {
+    document.querySelector(".product__price").textContent = document.querySelector(".product__options input:checked").getAttribute("price");
+  })
 </script>

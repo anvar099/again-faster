@@ -1,14 +1,20 @@
 {{ "style-product-info.css" | asset_url | stylesheet_tag }}
 
+<div class="vertical-line first-line"></div>
+<div class="vertical-line second-line"></div>
+<div class="vertical-line third-line"></div>
+
 <div class="container">
-  <div class="product__info__row">
+  <div class="product__info__content">
     {% for html in product.metafields.accentuate.text %}
-    <div class="product__info-text__container">
-      <div class="product__info-text">{{product.metafields.accentuate[html.metafield][html.index]}}</div>
-    </div>
+    <div class="product__info__row">
+      <div class="product__info-text__container">
+        <div class="product__info-text">{{product.metafields.accentuate[html.metafield][html.index]}}</div>
+      </div>
       <div class="product__info-img">
         <img class="info__img" src="{{ product.metafields.accentuate.image[forloop.index0][0].src }}" alt="product_image">
       </div>
+    </div>
     {% endfor %}
   </div>
 </div>

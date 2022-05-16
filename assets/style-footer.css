@@ -61,8 +61,7 @@
 .footer-form .arrow {
   position: absolute;
   right: 0;
-  /* top: -2px; */
-  /* padding: 10% 0; */
+  cursor: pointer;
   border: none;
   background-color: transparent;
 }

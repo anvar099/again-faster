@@ -15,6 +15,10 @@
 }
 .featured__product__img {
   width: 100%;
+  transition: 0.6s;
+}
+.featured__product__img:hover {
+  transform: scale(1.1);
 }
 .featured__product-name {
   display: flex;
