@@ -202,3 +202,7 @@
   text-decoration-line: underline;
   color: #000000;
 }
+
+.option__label.active {
+  border: 1px solid black;
+}

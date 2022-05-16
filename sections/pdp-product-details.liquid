@@ -118,3 +118,13 @@
     document.querySelector(".product__price").textContent = document.querySelector(".product__options input:checked").getAttribute("price");
   })
 </script>
+<script>
+  let buttons = document.querySelectorAll('.option__label');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', function () {
+      buttons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+</script>
