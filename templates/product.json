@@ -14,7 +14,10 @@
     },
     "recommend-product": {
       "type": "recommend-product",
-      "settings": {}
+      "settings": {
+        "collection_list": [],
+        "title-recommend": "You might also like"
+      }
     }
   },
   "order": [
