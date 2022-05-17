@@ -22,11 +22,29 @@
     <a href="{{ routes.account_url }}" class="navigatin__icon">
       {% render "icon__account" %}
     </a>
-    <a href="{{ routes.cart_url }}" class="navigatin__icon">
+    <a href="" class="navigatin__icon" id="myBtn">
       {% render "icon__cart" %}
     </a>
   </ul>
 </div>
 </div>
+
+{% render "cart" %}
+<script>
+
+function toggleMobileMenu(menu) {
+  menu.classList.toggle("open");
+}
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var cartClose = document.getElementsByClassName("close");
+
+const toggleNav = () => {
+  modal.classList.toggle("m__card-open");
+};
+btn.addEventListener("click", toggleNav);
+cartClose.addEventListener("click", toggleNav);
+
+</script>
 
 {% schema %} { "name": "Navigation", "class": "navigation" } {% endschema %}
