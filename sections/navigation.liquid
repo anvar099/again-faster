@@ -24,22 +24,89 @@
     </a>
     <a href="" class="navigatin__icon" id="myBtn">
       {% render "icon__cart" %}
+      
     </a>
+    <p data-ajax-cart-bind-state="cart.item_count" class="cart-item-counter">
+      Cart:{{ cart.item_count }}
+    </p>
   </ul>
 </div>
 </div>
 
 {% render "cart" %}
+
+<script>
+  document.querySelector("#myBtn").addEventListener('click', e => {
+    e.preventDefault()
+  })
+    
+  const myCustom = () => {
+  
+    let formData = {
+      'items': [{
+      'id': document.querySelector(".product__options input:checked").getAttribute("value"),
+      'quantity': 1
+      }]
+    };
+    fetch(window.Shopify.routes.root + 'cart.js', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then((data)=>{
+      console.log(data)
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });  
+}
+document.querySelector(".cart__product-container").innerHTML += `
+  <div class="modal-content">
+    <div class="cart__product--img">
+      <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+    </div>
+    <div class="cart__details-row">
+    <div class="cart__product-details">
+      <div class="cart__product--title">
+        <a href="{{ item.url }}">{{ item.product_title }}</a>
+      </div>
+      <p class="cart__product--size"></p>
+      <div class="cart__product--quantity">
+        <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
+      </div>
+    </div>
+    <div>
+      <p class="cart__product--price">
+        {{ item.price | money }}
+      </p>
+      <div class="cart__remove__product">
+        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
+          {% render "close-icon" %}
+        </a>        
+      </div>
+    </div>  
+    </div>
+  </div>
+`
+
+</script>
+
+
 <script>
 
 function toggleMobileMenu(menu) {
   menu.classList.toggle("open");
 }
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("myBtn");
-var cartClose = document.getElementsByClassName("close");
+const modal = document.querySelector("#myModal");
+const btn = document.querySelector("#myBtn");
+const cartClose = document.querySelector("#close");
 
-const toggleNav = () => {
+const toggleNav = (e) => {
+  e.preventDefault()
   modal.classList.toggle("m__card-open");
 };
 btn.addEventListener("click", toggleNav);

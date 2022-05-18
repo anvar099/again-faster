@@ -1,30 +1,31 @@
 {{ "style-cart.css" | asset_url | stylesheet_tag }}
 
+{% if cart.item_count > 0 %}
 <div class="cart__container" id="myModal">
   <div class="cart__header-row">
     <h1 class="cart__title">My Cart</h1>
-    <div class="close__cart close" >
+    <div class="close__cart" id="close" >
       {% render "close-icon" %}
     </div>
   </div>
+  <div class="horyzontal-line"></div>
+
+  
 
   <div class="cart__product-container">
-    <div class="modal-content">
-    <div class="cart__product--img">
-      <img src="" alt="">
-    </div>
-    <div class="cart__product-details">
-      <h3 class="cart__product--title"></h3>
-      <p class="cart__product--size"></p>
-      <div class="cart__product--incrementor"></div>
-    </div>
-    <div>
-      <p class="cart__product--price"></p>
-      <div>
-        {% render "close-icon" %}
-      </div>
-    </div>
-  </div>
+    {% for item in cart.items %}
+    
+    <div class="horyzontal-line"></div>
+  {% endfor %}
   </div>
   
+  <div>
+    <p>sub total : {{ cart.total_price | money }}</p>
+    <button type="submit" name="update">Update</button>
+    <button type="submit" name="checkout">Checkout</button>
+  </div>
 </div>
+{% else %}
+  <h2>cart</h2>
+  Cart is empty
+{% endif %}

@@ -30,5 +30,13 @@
     </main>
 
     {% section "footer" %}
+
+
+    <script type="application/json" data-ajax-cart-initial-state >
+      {{ cart | json }}
+    </script>   
+    <script type="module">
+      import '{{ "liquid-ajax-cart-v1.10.1.js" | asset_url }}';
+    </script>
   </body>
 </html>

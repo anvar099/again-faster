@@ -42,7 +42,7 @@
 <div class="product__description">{{ product.description }}</div>
 
 
-{% form "product", product %}
+{% form "product", product, class: 'product-form' %}
 <div class="product__options">
 {% for variant in product.variants %}
   {% if variant.available %}
@@ -56,7 +56,7 @@
 </div>
 <input type="hidden" name="quantity" value="1" min="1">
   <!-- <div class="btn__add-to-cart"> -->
-    <button class="btn__add-to-cart" type="submit" name="add" id="AddToCart">Add to cart</button>
+    <button class="btn__add-to-cart " type="submit" name="add" id="AddToCart">Add to cart</button>
   <!-- </div> -->
 {% endform %}
 <div class="line-horyzontal"></div>
@@ -73,6 +73,7 @@
     </div>
   </div>
 </div>
+
 
 {% schema %} 
   {
@@ -98,7 +99,36 @@
 {% endschema %}
 
 
-
+<script>
+  document.querySelector(".product-form").addEventListener('submit', e => {
+    e.preventDefault()
+    let formData = {
+      'items': [{
+      'id': document.querySelector(".product__options input:checked").getAttribute("value"),
+      'quantity': 1
+      }]
+    };
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },  
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then((data)=>{
+      console.log(data)
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    document.querySelector("#myModal").classList.add("m__card-open")
+    myCustom()
+  })  
+ 
+</script>
 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
