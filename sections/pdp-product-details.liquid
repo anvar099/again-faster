@@ -119,13 +119,12 @@
       return response.json();
     })
     .then((data)=>{
-      console.log(data)
+      myCustom()
     })
     .catch((error) => {
       console.error('Error:', error);
     });
-    document.querySelector("#myModal").classList.add("m__card-open")
-    myCustom()
+    
   })  
  
 </script>

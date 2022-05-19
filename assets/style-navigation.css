@@ -50,14 +50,3 @@
 .navigation__icon-list--dark path{
   stroke: black;
 }
-.cart-item-counter {
-  border: 2px solid red;
-  color: white;
-  margin-left: -15px !important;
-}
-body.js-ajax-cart-empty .cart-item-counter {
-  display: none !important;
-}
-body.js-ajax-cart-not-empty .cart-item-counter {
-  display: inline !important;
-}

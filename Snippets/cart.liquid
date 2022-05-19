@@ -1,31 +1,50 @@
 {{ "style-cart.css" | asset_url | stylesheet_tag }}
 
-{% if cart.item_count > 0 %}
 <div class="cart__container" id="myModal">
+  <div>
   <div class="cart__header-row">
     <h1 class="cart__title">My Cart</h1>
     <div class="close__cart" id="close" >
       {% render "close-icon" %}
     </div>
   </div>
-  <div class="horyzontal-line"></div>
-
   
 
   <div class="cart__product-container">
-    {% for item in cart.items %}
-    
-    <div class="horyzontal-line"></div>
-  {% endfor %}
-  </div>
   
-  <div>
-    <p>sub total : {{ cart.total_price | money }}</p>
-    <button type="submit" name="update">Update</button>
-    <button type="submit" name="checkout">Checkout</button>
   </div>
 </div>
-{% else %}
-  <h2>cart</h2>
-  Cart is empty
-{% endif %}
+
+
+
+  
+  <div class="cart__checkout-container">
+    <div class="cart__total-price-row">
+      <p>Subtotal</p>
+      <div class="cart__total-price">
+        {{ cart.total_price | money }}
+      </div>
+    </div>
+    <p class="cart__text-shipping">
+      {{ section.settings.text-checkout | escape }}
+    </p>
+    <div class="product__price-monthly">
+      <img src="{{ section.settings.logo-affirm-img | image_url }}" alt="">
+      <p>
+        {{ section.settings.text-per-month-sale | escape}}
+      </p>
+      <a href="#">Learn More</a>
+    </div>
+    <div class="cart__checkout-submit">
+      <button type="submit" name="checkout">Continue to Checkout</button>
+    </div>
+    
+  </div>
+
+</div>
+
+
+<script>
+
+</script>
+

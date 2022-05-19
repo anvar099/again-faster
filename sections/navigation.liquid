@@ -26,9 +26,6 @@
       {% render "icon__cart" %}
       
     </a>
-    <p data-ajax-cart-bind-state="cart.item_count" class="cart-item-counter">
-      Cart:{{ cart.item_count }}
-    </p>
   </ul>
 </div>
 </div>
@@ -38,16 +35,11 @@
 <script>
   document.querySelector("#myBtn").addEventListener('click', e => {
     e.preventDefault()
+    myCustom()
   })
     
-  const myCustom = () => {
+  function myCustom(){
   
-    let formData = {
-      'items': [{
-      'id': document.querySelector(".product__options input:checked").getAttribute("value"),
-      'quantity': 1
-      }]
-    };
     fetch(window.Shopify.routes.root + 'cart.js', {
       method: 'GET',
       headers: {
@@ -58,40 +50,70 @@
       return response.json();
     })
     .then((data)=>{
-      console.log(data)
+      document.querySelector(".cart__product-container").innerHTML = ""
+      data.items.forEach(item => {
+        document.querySelector(".cart__product-container").innerHTML += `
+          <div class="modal-content" key="${item.key}">
+            <div class="cart__product--img">
+              <img src="${ item.image }" alt="product image">
+            </div>
+            <div class="cart__details-row">
+            <div class="cart__product-details">
+              <div class="cart__product--title">
+                <a href="${ item.url }">${ item.product_title }</a>
+              </div>
+              <p class="cart__product--size">
+                ${ item.variant_options }
+              </p>
+              <div class="cart__product--quantity">
+                <input type="number" name="updates[]" id="updates_${ item.key }" value="${ item.quantity }" min="0">
+              </div>
+            </div>
+            <div>
+              <p class="cart__product--price"> 
+                ${ item.price }
+              </p>
+              <div class="cart__remove__product">
+                  {% render "close-icon" %}  
+              </div>
+            </div>  
+            </div>
+          </div>
+          <div class="horyzontal-line"></div>
+        `
+      }); 
+
+      document.querySelector("#myModal").classList.add("m__card-open")
     })
     .catch((error) => {
       console.error('Error:', error);
     });  
 }
-document.querySelector(".cart__product-container").innerHTML += `
-  <div class="modal-content">
-    <div class="cart__product--img">
-      <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
-    </div>
-    <div class="cart__details-row">
-    <div class="cart__product-details">
-      <div class="cart__product--title">
-        <a href="{{ item.url }}">{{ item.product_title }}</a>
-      </div>
-      <p class="cart__product--size"></p>
-      <div class="cart__product--quantity">
-        <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-      </div>
-    </div>
-    <div>
-      <p class="cart__product--price">
-        {{ item.price | money }}
-      </p>
-      <div class="cart__remove__product">
-        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">
-          {% render "close-icon" %}
-        </a>        
-      </div>
-    </div>  
-    </div>
-  </div>
-`
+
+
+function removeProductItem(modal_c) {
+  let formData = {
+  'id': modal_c.getAttribute("key"),
+  'quantity': 0
+};
+fetch(window.Shopify.routes.root + 'cart/change.js', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(formData)
+})
+.then(response => {
+  return response.json();
+})
+.then(smth=>{
+  modal_c.remove()
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+}
+
 
 </script>
 
@@ -112,6 +134,36 @@ const toggleNav = (e) => {
 btn.addEventListener("click", toggleNav);
 cartClose.addEventListener("click", toggleNav);
 
+//remove product 
+document.querySelector(".cart__product-container").addEventListener('click', e => {
+  // e.preventDefault()
+  if(e.target.classList.contains("cart__remove__product")) {
+    removeProductItem(e.target.parentElement.parentElement.parentElement)
+  }
+})
 </script>
 
-{% schema %} { "name": "Navigation", "class": "navigation" } {% endschema %}
+{% schema %}
+  { 
+    "name": "Navigation", 
+    "class": "navigation",
+    "settings": [
+      {
+        "type": "text",
+        "id": "text-checkout",
+        "label": "Modal Cart Shipping Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo-affirm-img",
+        "label": "Modal Cart Logo Per Month Price"
+      },
+      {
+        "type": "text",
+        "id": "text-per-month-sale",
+        "label": "Modal Cart Text Per Month Sale"
+      }
+    ]
+  } 
+  
+{% endschema %}
