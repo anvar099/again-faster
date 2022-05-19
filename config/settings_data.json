@@ -19,7 +19,11 @@
       },
       "navigation": {
         "type": "navigation",
-        "settings": {}
+        "settings": {
+          "text-checkout": "Tax and shipping calculates at checkout.",
+          "logo-affirm-img": "shopify:\/\/shop_images\/image_1.png",
+          "text-per-month-sale": "pay as low as 56\/mo"
+        }
       },
       "footer": {
         "type": "footer",
