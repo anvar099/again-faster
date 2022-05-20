@@ -1,0 +1,160 @@
+.login__title {
+  text-align: center;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 130%;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 63px;
+}
+.login__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login__content {
+  width: 442px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 63px 0 120px 0;
+}
+.login__password__content {
+  width: 442px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 63px 0 120px 0;
+  display: none;
+}
+
+.input__container {
+  display: flex;
+	flex-direction: column-reverse;
+	position: relative;
+}
+.input__container:nth-child(3) {
+  margin-top: 55px;
+}
+.login__input-label {
+  color: #000000;
+	position: absolute;
+	top: -0.5rem;
+	transition: .25s ease;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 167.5%;
+}
+.login__input-field {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 1px solid #BEBEBE;
+  font: inherit;
+  padding: 1.3rem 0 0 0;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 167.5%;
+}
+.login__input-field:focus, .login__input-field:valid {
+  outline: 0;
+  border-bottom-color: #000000;
+}
+.login__input-field:focus + .login__input-label, .login__input-field:valid + .login__input-label {
+  color: #000000;
+  transform: translateY(-1.5rem);
+}
+.login__submit-btn {
+  width: 100%; 
+  height: 43px;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  cursor: pointer;
+}
+.login__submit-btn input {
+  color: #fff;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.175em;
+  text-transform: uppercase;
+  background-color: transparent;
+  cursor: pointer;
+}
+.login__register-text {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  text-align: center;
+  margin: 40px 0 24px 0;
+}
+.login__register-btn {
+  width: 100%;
+  height: 43px;
+  border: 1px solid #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+.login__register-btn p {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.175em;
+  text-transform: uppercase;
+  color: #000000;
+  background-color: transparent;
+}
+.login__error-txt{
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 167.5%;
+  color: #DA0000;
+}
+.login__forget-password {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+.login__forget-password h2 {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  cursor: pointer;
+}
+.forgot__btn-parent {
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+.forgot__cancel {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
+  cursor: pointer;
+}

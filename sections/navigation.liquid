@@ -15,18 +15,36 @@
     </li>
     {% endfor %}
   </ul>
-  <ul class="navigation__icon-list {% if template.name != "index" %} navigation__icon-list--dark {% endif %}">
-    <a href="{{ routes.search_url }}" class="navigatin__icon">
-      {% render "icon__search" %}
-    </a>
-    <a href="{{ routes.account_url }}" class="navigatin__icon">
-      {% render "icon__account" %}
-    </a>
-    <a href="" class="navigatin__icon" id="myBtn">
-      {% render "icon__cart" %}
-      
-    </a>
-  </ul>
+  {% if shop.customer_accounts_enabled %}
+    {% if customer %}
+    <ul class="navigation__icon-list {% if template.name != "index" %} navigation__icon-list--dark {% endif %}">
+      <a href="" class="navigatin__icon">
+        {% render "icon__search" %}
+      </a>
+      <a href="" class="navigatin__icon" id="myBtn">
+        {% render "icon__cart" %}
+      </a>
+      <a href="{{ routes.account_url }}" class="navigatin__icon">
+        {{ customer.name }}
+      </a>
+      <a href="{{ routes.account_logout_url }}" class="navigatin__icon">
+        Log Out
+      </a>
+    </ul>
+    {% else %}
+    <ul class="navigation__icon-list {% if template.name != "index" %} navigation__icon-list--dark {% endif %}">
+      <a href="" class="navigatin__icon">
+        {% render "icon__search" %}
+      </a>
+      <a href="{{ routes.account_login_url }}" class="navigatin__icon">
+        {% render "icon__account" %}
+      </a>
+      <a href="" class="navigatin__icon" id="myBtn">
+        {% render "icon__cart" %}
+      </a>
+    </ul>
+  {% endif %}
+{% endif %}  
 </div>
 </div>
 
@@ -63,7 +81,7 @@
                 <a href="${ item.url }">${ item.product_title }</a>
               </div>
               <p class="cart__product--size">
-                ${ item.variant_options }
+                ${ item.variant_options }lb Single
               </p>
               <div class="cart__product--quantity">
                 <input type="number" name="updates[]" id="updates_${ item.key }" value="${ item.quantity }" min="0">
@@ -71,7 +89,7 @@
             </div>
             <div>
               <p class="cart__product--price"> 
-                ${ item.price }
+                $${(item.price / 100).toFixed(2)  } 
               </p>
               <div class="cart__remove__product">
                   {% render "close-icon" %}  

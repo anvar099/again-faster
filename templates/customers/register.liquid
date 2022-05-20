@@ -1,21 +1,38 @@
-<!-- /templates/customers/register.liquid -->
+{{ "style-register.css" | asset_url | stylesheet_tag }}
+
 
 {% form 'create_customer' %}
+<div class="register__container">
+  <div class="register__content">
+    <h2 class="reg__title">Create an Account</h2>
+    <div class="reg__fullname__input">
+    <div class="register__input-container">
+      <input class="reg__input fullname__input" type="text" value="" name="customer[first_name]" required/>
+      <label class="reg__label" for="first_name">First Name</label>
+    </div>
+    <div class="register__input-container">
+      <input class="reg__input fullname__input" type="text" value="" name="customer[last_name]" required/>
+      <label class="reg__label" for="last_name">Last Name</label>
+    </div>
+  </div>
+    <div class="register__input-container">
+      <input class="reg__input" type="email" value="" name="customer[email]" required/>
+      <label class="reg__label" for="email">Email Address</label>
+    </div>
+    <div class="register__input-container">
+      <input class="reg__input" type="password" value="" name="customer[password]" required/>
+      <label class="reg__label" for="password">Password</label>
+    </div>
+    <div>{{ form.errors | default_errors }}</div> 
+    <div class="reg__submit">
+      <input type="submit" value="Create an Account" />
+    </div>
+    <p class="register-text">Don’t have an account yet?</p>
+    <a href="{{ routes.account_login_url }}" class="login__register-btn">
+      <p type="submit">Log In</p>
+    </a>
+  </div>
+</div>
 
-{{ form.errors | default_errors }}
-
-<label for="first_name">First Name</label>
-<input type="text" value="" name="customer[first_name]" size="30" />
-
-<label for="last_name">Last Name</label>
-<input type="text" value="" name="customer[last_name]" size="30" />
-
-<label for="email">Email Address</label>
-<input type="email" value="" name="customer[email]" size="30" />
-
-<label for="password">Password</label>
-<input type="password" value="" name="customer[password]" size="30" />
-
-<input type="submit" value="Create" />
 
 {% endform %}
