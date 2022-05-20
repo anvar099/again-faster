@@ -23,11 +23,21 @@
       <input class="reg__input" type="password" value="" name="customer[password]" required/>
       <label class="reg__label" for="password">Password</label>
     </div>
+    <div class="register__input-container">
+      <input
+      class="reg__input"
+      type="password"
+      name="customer[password_confirmation]"
+      required
+      />
+      <label class="reg__label" for="password_confirmation">Confirm Password</label>
+    </div>
+    
     <div>{{ form.errors | default_errors }}</div> 
     <div class="reg__submit">
       <input type="submit" value="Create an Account" />
     </div>
-    <p class="register-text">Don’t have an account yet?</p>
+    <p class="register-text">Already have an account?</p>
     <a href="{{ routes.account_login_url }}" class="login__register-btn">
       <p type="submit">Log In</p>
     </a>

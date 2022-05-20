@@ -1,7 +1,8 @@
 {{ "style-login.css" | asset_url | stylesheet_tag }}
-<div class="login__container container">
-  {% form 'customer_login' %}
 
+<div class="login__container container">
+  
+  {% form 'customer_login' %}
   <div class="login__content" id="login">
     <h2 class="login__title">Log in</h2>
     <div class="input__container">
@@ -39,6 +40,7 @@
     </a>
   </div>
   {% endform %} 
+
   {% form 'recover_customer_password' %}
    <div class="login__password__content" id="forgot">
     <h2 class="login__title">Reset Password</h2>
@@ -46,7 +48,7 @@
         <input
         class="login__input-field"
         type="email"
-        name="customer[email]"
+        name="email"
         required
         />
         <label class="login__input-label" for="customer_email" >Enter email address</label>
@@ -59,9 +61,10 @@
       </div>
      
     </div>
+    {% endform %}
 </div>
 
-{% endform %}
+
 
 
 <script>
