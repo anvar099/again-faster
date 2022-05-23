@@ -1,7 +1,7 @@
 {{ "style-navigation.css" | asset_url | stylesheet_tag }}
 
 <div class="navigation__bar {% if template.name != "index" %} navigation__container--relative {% endif %}">
-<div class="container navigation__container">
+<div class="container  navigation__container">
   <div>
     <a href="{{ routes.root_url }}" class="navigation__logo {% if template.name != "index" %} navigation__logo--dark {% endif %} ">
       {% render "logo" %}
