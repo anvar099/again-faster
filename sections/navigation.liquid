@@ -24,10 +24,10 @@
       <a href="" class="navigatin__icon" id="myBtn">
         {% render "icon__cart" %}
       </a>
-      <a href="{{ routes.account_url }}" class="navigatin__icon">
+      <a href="{{ routes.account_url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
         {{ customer.name }}
       </a>
-      <a href="{{ routes.account_logout_url }}" class="navigatin__icon">
+      <a href="{{ routes.account_logout_url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
         Log Out
       </a>
     </ul>
@@ -160,6 +160,8 @@ document.querySelector(".cart__product-container").addEventListener('click', e =
   }
 })
 </script>
+
+
 
 {% schema %}
   { 

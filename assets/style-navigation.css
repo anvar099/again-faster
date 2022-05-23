@@ -50,3 +50,13 @@
 .navigation__icon-list--dark path{
   stroke: black;
 }
+.account__url, .login__url {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 140%;
+  letter-spacing: 0.175em;
+  text-transform: uppercase;
+  text-decoration: none;
+}

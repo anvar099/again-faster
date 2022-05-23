@@ -44,7 +44,7 @@
 .reg__label {
   color: #000000;
 	position: absolute;
-	top: -0.5rem;
+	top: 1rem;
 	transition: .25s ease;
   font-family: 'Open Sans';
   font-style: normal;
@@ -71,7 +71,7 @@
 }
 .reg__input:focus + .reg__label, .reg__input:valid + .reg__label {
   color: #000000;
-  transform: translateY(-1.5rem);
+  transform: translateY(-2.5rem);
 }
 .reg__submit {
   width: 100%; 

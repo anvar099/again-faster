@@ -1,39 +1,101 @@
-<!-- /templates/customers/addresses.liquid -->
+{{ "style-address.css" | | asset_url | stylesheet_tag }}
+<div class="address__container container">
+  <div class="menubar__container">
+    <div class="menubar__content">
+      <h2 class="menubar__title">My Account</h2>
+      <div class="menubar__links">
+        <a href="{{ routes.account_url }}">Account Overview</a>
+        <a href="{{ customer.orders[0].customer_url }}">Order Details</a>
+        <a href="{{ routes.account_addresses_url }}">Address Book</a>
+      </div>
+    </div>
+  </div>
+  <div class="address__form-container">
+    <h2 class="address__title">Add New Address</h2>
+    {% form 'customer_address', customer.new_address %}
 
-<h2>New Address</h2>
-{% form 'customer_address', customer.new_address %}
+    {{ form.errors | default_errors }}
+    <div class="fullname">
+      <div class="input__container">
+        <input
+          class="login__input-field fullname__input"
+          type="text"
+          name="address[first_name]"
+          required
+        />
+        <label class="login__input-label" for="first_name">First Name</label>
+      </div>
+      <div class="input__container">
+        <input
+          class="login__input-field fullname__input"
+          type="text"
+          name="address[last_name]"
+          required
+        />
+        <label class="login__input-label" for="last_name">Last Name</label>
+      </div>
+    </div>
+    <!-- <div class="input__container">
+<input class="login__input-field" type="text" name="address[company]" required/>
+<label class="login__input-label" for="company">Company</label>
+</div> -->
+    <div class="input__container">
+      <input
+        class="login__input-field"
+        type="text"
+        name="address[address1]"
+        required
+      />
+      <label class="login__input-label" for="address1">Address 1</label>
+    </div>
+    <div class="input__container">
+      <input
+        class="login__input-field"
+        type="text"
+        name="address[address2]"
+        required
+      />
+      <label class="login__input-label" for="address2">Address 2</label>
+    </div>
+    <div class="city__address-content">
+      <div class="input__container">
+        <input
+          class="login__input-field city__address"
+          type="text"
+          name="address[city]"
+          required
+        />
+        <label class="login__input-label" for="city">City</label>
+      </div>
+      <div class="input__container">
+        <input
+          class="login__input-field city__address"
+          type="text"
+          name="address[state]"
+          required
+        />
+        <label class="login__input-label" for="city">State</label>
+      </div>
+    </div>
+    <div class="address__btn-container">
+    <div class="add__address-btn">
+      <a class="add__address-btn-url" href="{{ 'customer.addresses.add_new' | t }}">Add new address</a>
+    </div>
+    <a class="address__cancel" href="{{ routes.account_addresses_url }}">Cancel</a>
+  </div>
+    <!-- See docs for @shopify/theme-addresses to support Country and Province -->
+    <!-- <label class="login__input-label" for="country">Country</label>
+<select class="login__input-field" name="address[country]" /></select>
 
-{{ form.errors | default_errors }}
+<label class="login__input-label" for="province">Province</label>
+<select class="login__input-field" name="address[province]" /></select>
 
-<label for="first_name">First Name</label>
-<input type="text" value="" name="address[first_name]" size="30" />
+<label class="login__input-label" for="zip">Zip/Post Code</label>
+<input class="login__input-field" type="text" value="" name="address[zip]" />
 
-<label for="last_name">Last Name</label>
-<input type="text" value="" name="address[last_name]" size="30" />
+<label class="login__input-label" for="phone">Phone Number</label>
+<input class="login__input-field" type="tel" value="" name="address[phone]" /> -->
 
-<label for="company">Company</label>
-<input type="text" value="" name="address[company]" />
-
-<label for="address1">Address 1</label>
-<input type="text" value="" name="address[address1]" />
-
-<label for="address2">Address 2</label>
-<input type="text" value="" name="address[address2]" />
-
-<label for="city">City</label>
-<input type="text" value="" name="address[city]" />
-
-<!-- See docs for @shopify/theme-addresses to support Country and Province -->
-<label for="country">Country</label>
-<select name="address[country]" /></select>
-
-<label for="province">Province</label>
-<select name="address[province]" /></select>
-
-<label for="zip">Zip/Post Code</label>
-<input type="text" value="" name="address[zip]" />
-
-<label for="phone">Phone Number</label>
-<input type="tel" value="" name="address[phone]" />
-
-{% endform %}
+    {% endform %}
+  </div>
+</div>

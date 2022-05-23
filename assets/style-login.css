@@ -41,7 +41,7 @@
 .login__input-label {
   color: #000000;
 	position: absolute;
-	top: -0.5rem;
+	top: 1rem;
 	transition: .25s ease;
   font-family: 'Open Sans';
   font-style: normal;
@@ -68,7 +68,7 @@
 }
 .login__input-field:focus + .login__input-label, .login__input-field:valid + .login__input-label {
   color: #000000;
-  transform: translateY(-1.5rem);
+  transform: translateY(-2.5rem);
 }
 .login__submit-btn {
   width: 100%; 
