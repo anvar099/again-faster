@@ -84,14 +84,16 @@
                 ${ item.variant_options }lb Single
               </p>
               <div class="cart__product--quantity">
-                <input type="number" name="updates[]" id="updates_${ item.key }" value="${ item.quantity }" min="0">
+                <span class="qty__minus">-</span>
+                <span class="current__qty-item">1</span>
+                <span class="qty__plus">+</span>
               </div>
             </div>
             <div>
               <p class="cart__product--price"> 
                 $${(item.price / 100).toFixed(2)  } 
               </p>
-              <div class="cart__remove__product">
+              <div class="cart__remove__product" >
                   {% render "close-icon" %}  
               </div>
             </div>  
@@ -100,7 +102,7 @@
           <div class="horyzontal-line"></div>
         `
       }); 
-
+      document.querySelector(".cart__total-price").innerHTML = `$${(data.items_subtotal_price / 100).toFixed(2) }`
       document.querySelector("#myModal").classList.add("m__card-open")
     })
     .catch((error) => {
@@ -125,7 +127,9 @@ fetch(window.Shopify.routes.root + 'cart/change.js', {
   return response.json();
 })
 .then(smth=>{
+  document.querySelector(".cart__total-price").textContent = `$${(smth.items_subtotal_price/100).toFixed(2)}`;
   modal_c.remove()
+  if(!smth.item_count){ empty_cart();  return }
 })
 .catch((error) => {
   console.error('Error:', error);
@@ -133,6 +137,63 @@ fetch(window.Shopify.routes.root + 'cart/change.js', {
 }
 
 
+function updateProductItem(sign, target)  {
+        let item = target.parentElement.parentElement.parentElement.parentElement;
+        let key = item.getAttribute("key")
+        let qty = null;
+        if (sign==="+"){
+            qty = Number(target.previousElementSibling.textContent) + 1
+        } else{
+            if (Number(target.nextElementSibling.textContent) > 1) {
+                qty = Number(target.nextElementSibling.textContent) - 1;
+            }else{
+              removeProductItem(item)
+                return;
+            }
+        } 
+        let formData = {
+            "id": key,
+            "quantity": qty
+        };
+        fetch(window.Shopify.routes.root + 'cart/change.js', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(res=>{
+            res.json().then((changed)=>{
+                document.querySelector(".cart__total-price").textContent = `$${(changed.items_subtotal_price/100).toFixed(2)}`;
+              
+              
+
+                let current = changed.items.find((item)=>item.key === key);
+                if(qty <= current.quantity){                  
+                    if (sign==="+"){
+                        target.previousElementSibling.textContent = qty;
+                    } else{
+                        target.nextElementSibling.textContent = qty;
+                    } 
+                    item.querySelector(".cart__product--price").textContent = `$${(current.original_line_price/100).toFixed(2)}`;
+                }else{
+                    return false
+                }
+            })
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+    function empty_cart() {
+        document.querySelector(".cart__product-container").innerHTML = `
+            <div class="empty_cart">
+                <p>Your Cart is Empty</p>
+                <a class="btn btn--secondary" href="/collections/test">Shop Best Sellers</a>
+            </div>
+            `;
+        return
+    }
 </script>
 
 
@@ -157,6 +218,12 @@ document.querySelector(".cart__product-container").addEventListener('click', e =
   // e.preventDefault()
   if(e.target.classList.contains("cart__remove__product")) {
     removeProductItem(e.target.parentElement.parentElement.parentElement)
+  }
+  else if (e.target.classList.contains("qty__minus")){
+    updateProductItem("-", e.target)
+  }
+  else if (e.target.classList.contains("qty__plus")){
+    updateProductItem("+", e.target)
   }
 })
 </script>
