@@ -33,6 +33,10 @@
   text-decoration: none;
   margin-bottom: 16px;
 }
+.menubar__link.active {
+  border-bottom: 1px solid  #C2A578;
+  width: fit-content;
+}
 .order__details-container {
   margin: 78px 0 0 125px;
   width: 50%;

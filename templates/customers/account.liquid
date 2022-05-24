@@ -3,9 +3,9 @@
 <div class="account__manubar">
   <h2 class="menubar__title">My account</h2>
   <div class="account__menu">
-    <a href="{{ routes.account_url }}">Account Overview</a>
-    <a href="{{ customer.orders[0].customer_url }}">Orders Details</a>
-    <a href="{{ routes.account_addresses_url }}">Address Book</a>
+    <a class="menubar__link {% if template.name ==  'account' %} active {% endif %}" href="{{ routes.account_url }}">Account Overview</a>
+    <a class="menubar__link {% if template.name ==  'order' %} active {% endif %}" href="{{ customer.orders[0].customer_url }}">Orders Details</a>
+    <a class="menubar__link {% if template.name ==  'addresses' %} active {% endif %}" href="{{ routes.account_addresses_url }}">Address Book</a>
   </div>
 
 </div>

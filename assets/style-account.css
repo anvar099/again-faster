@@ -7,9 +7,7 @@
   width: 50%;
   margin: 78px 0 100px 125px;
 }
-.customer__orders-container {
-  /* border: 2px solid red; */
-}
+
 
 .account__manubar {
   /* border: 2px solid red; */
@@ -42,6 +40,10 @@
   text-transform: uppercase;
   color: #000000;  
   margin-bottom: 40px;
+}
+.menubar__link.active {
+  border-bottom: 1px solid  #C2A578;
+  width: fit-content;
 }
 .orders__header {
   display: grid;
