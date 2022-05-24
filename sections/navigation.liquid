@@ -7,7 +7,7 @@
       {% render "logo" %}
     </a> 
   </div>
-  <ul class="navigation__link-list">
+  <ul class="navigation__link-list ">
     {% for link in linklists.main-menu.links %}
     <li>
       <a href="{{ link.url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
