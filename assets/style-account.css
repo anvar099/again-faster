@@ -5,7 +5,7 @@
 .orders__container {
   /* border: 2px solid darkmagenta; */
   width: 50%;
-  margin: 78px 0 0 125px;
+  margin: 78px 0 100px 125px;
 }
 .customer__orders-container {
   /* border: 2px solid red; */
@@ -14,7 +14,7 @@
 .account__manubar {
   /* border: 2px solid red; */
   width: 368px;
-  height: 100vh;
+  height: auto;
   background: #FBFBFB;
   padding: 78px 0 0 34px;
 }
@@ -146,7 +146,7 @@
   text-decoration: none;
   color: #000000;
 }
-.next, .prev {
+.next {
   position: absolute;
   right: 0;
   font-family: 'Open Sans';
@@ -155,6 +155,15 @@
   font-size: 14px;
   line-height: 167.5%;
   
+}
+.prev {
+  position: absolute;
+  left: 0;
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 167.5%;
 }
 .prev a, .next a {
   color: #000000 !important;

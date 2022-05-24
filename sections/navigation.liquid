@@ -189,7 +189,9 @@ function updateProductItem(sign, target)  {
         document.querySelector(".cart__product-container").innerHTML = `
             <div class="empty_cart">
                 <p>Your Cart is Empty</p>
-                <a class="btn btn--secondary" href="/collections/test">Shop Best Sellers</a>
+                <div>
+                  <a class="btn btn--secondary" href="{{ collection.url }}">Shop Best Sellers</a>
+                </div>
             </div>
             `;
         return
