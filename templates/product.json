@@ -18,11 +18,16 @@
         "collection_list": [],
         "title-recommend": "You might also like"
       }
+    },
+    "yotpo-reviews": {
+      "type": "yotpo-reviews",
+      "settings": {}
     }
   },
   "order": [
     "product",
     "product-info",
-    "recommend-product"
+    "recommend-product",
+    "yotpo-reviews"
   ]
 }

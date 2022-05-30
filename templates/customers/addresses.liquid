@@ -31,6 +31,7 @@
             <h2>{{ address.name }}</h2>
             <p>{{ address.address1 }}</p>
             <p>{{ address.address2 }}</p>
+
             <p>{{ address.city }}</p>
             <p>{{ address.country }}</p>
             <div class="address__manage">
@@ -156,5 +157,6 @@
   document.getElementById("add__address-btn").onclick = function () {
     document.getElementById("add__new-address__form").style.display = "none";
     document.getElementById("default__address").style.display = "block";
+    
   };
 </script>
