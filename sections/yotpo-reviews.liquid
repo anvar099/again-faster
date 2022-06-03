@@ -1,12 +1,146 @@
-{{"style-pdp-reviews.css" | asset_url | stylesheet_tag }}
-
-
-<div class="yotpo yotpo-main-widget"
-data-product-id="{{ product.id }}"
-data-name="{{ product.title | escape }}"
-data-url="{{ shop.url }}{{ product.url }}"
-data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
-data-price="{{ variant.price | money_without_currency }}"
-data-currency="{{ shop.currency }}"
-data-description="{{ product.description | escape }}">
+{{ "style-pdp-reviews.css" | asset_url | stylesheet_tag }}
+<div class="container-yotpo">
+  <h2 class="yotpo-widget__title">Reviews</h2>
+  <div class="yotpo-widget__header yotpo-header-js">
+    <div class="yotpo-widget__overall">
+      <h3 class="yotpo-widget__avg-score avg-rating-js">5.0</h3>
+      <div class="yotpo bottomLine product__stars"
+        data-product-id="{{ product.id }}">
+      </div>
+    </div>
+    <div class="yotpo-widget__ratings">
+      <div class="yotpo-widget__rating">
+        <span>5 stars</span>
+        <div class="yotpo-widget__rating-progress">
+          <div class="progress-js"></div>
+        </div>
+        <span class="yotpo-widget__rating-count star-count-js">(18)</span>
+      </div>
+      <div class="yotpo-widget__rating">
+        <span>4 stars</span>
+        <div class="yotpo-widget__rating-progress">
+          <div class="progress-js"></div>
+        </div>
+        <span class="yotpo-widget__rating-count star-count-js">(1)</span>
+      </div>
+      <div class="yotpo-widget__rating">
+        <span>3 stars</span>
+        <div class="yotpo-widget__rating-progress">
+          <div class="progress-js"></div>
+        </div>
+        <span class="yotpo-widget__rating-count star-count-js">(0)</span>
+      </div>
+      <div class="yotpo-widget__rating">
+        <span>2 stars</span>
+        <div class="yotpo-widget__rating-progress">
+          <div class="progress-js"></div>
+        </div>
+        <span class="yotpo-widget__rating-count star-count-js">(0)</span>
+      </div>
+      <div class="yotpo-widget__rating">
+        <span>1 stars</span>
+        <div class="yotpo-widget__rating-progress">
+          <div class="progress-js"></div>
+        </div>
+        <span class="yotpo-widget__rating-count star-count-js">(0)</span>
+      </div>
+    </div>
+    <div class="yotpo-widget__actions">
+      <button class="write-btn">Write a review</button>
+      <button class="ask-btn">Ask a question</button>
+    </div>
+    <div class="container-yotpo"></div>
+  </div>
+  <div class="yotpo yotpo-main-widget"
+    data-product-id="{{ product.id }}"
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-price="{{ variant.price | money_without_currency }}"
+    data-currency="{{ shop.currency }}"
+    data-description="{{ product.description | escape }}">
+  </div>
 </div>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    var avgRatingLabel = document.querySelector(".avg-rating-js");
+    var starCountLabels = document.querySelectorAll(".star-count-js");
+    var progressBars = document.querySelectorAll(".progress-js");
+    var writeBtn = document.querySelector(".write-btn");
+    var header = document.querySelector(".yotpo-header-js");
+    
+      const starCounts = {
+        five: 0,
+        four: 0,
+        three: 0,
+        two: 0,
+        one: 0
+      };
+      
+      const url = 'https://api-cdn.yotpo.com/v1/widget/FiIdEx8s2QPKcrYX3AvhF3ECFlVfcAPxCALThwiz/products/{{ product.id }}/reviews.json';
+      const options2 = {
+        method: 'GET',
+        headers: {Accept: 'application/json', 'Content-Type': 'application/json'}
+      };
+      
+      (async function getReviews() {
+        const res = await fetch(url, options2);
+        const data = await res.json();
+        const reviews = data.response.reviews;
+        
+        if (reviews.length == 0) {
+          header.remove();
+        }
+        
+        const avgRating = (reviews.reduce((acc, cur) => acc += cur.score, 0) / reviews.length).toFixed(1);
+        reviews.forEach(item => {
+          switch(item.score) {
+            case 1:
+              starCounts.one++;
+            break;
+            case 2:
+              starCounts.two++;
+            break;
+            case 3:
+              starCounts.three++;
+            break;
+            case 4:
+              starCounts.four++;
+            break;
+            case 5:
+              starCounts.five++;
+              break;
+            }
+          });
+          
+          // DOM manipulation
+          avgRatingLabel.textContent = avgRating;
+          var loop = 0;
+          for (let [key, value] of Object.entries(starCounts)) {
+            starCountLabels[loop].textContent = `(${starCounts[key]})`;
+    
+            if (starCounts[key] != 0) {
+              progressBars[loop].style.width = `${starCounts[key] / reviews.length * 100}%`;
+            } else {
+              progressBars[loop].style.border = "none";
+            }
+            
+            loop++;
+          }
+    
+        })();
+
+      writeBtn.addEventListener("click", () => {
+        document.querySelector(".write-form").closest("form").style.overflow = "hidden";
+        document.querySelector(".write-review-wrapper.write-form").classList.toggle("yotpo-form-visible");
+      })
+    })
+
+  </script>
+
+{% schema %}
+  {
+    "class": "yotpo-widget"
+  }
+{% endschema %}
