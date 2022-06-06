@@ -62,8 +62,11 @@
         <p>{{ all_products[item].title }}</p>
         <a href="{{ all_products[item].url }}">Add to Cart</a>
       </div>
+      
       {% endfor %}
+      
     </div>
+    <div class="th_pb_section" id="th_product_bundle" data-id="{{ product.id }}"></div>
   </div>
 </div>
 
