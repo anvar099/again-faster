@@ -19,6 +19,19 @@
         "title-recommend": "You might also like"
       }
     },
+    "16545062796c507a7a": {
+      "type": "apps",
+      "blocks": {
+        "cbce13ae-3337-4a0b-b2ef-4ae92ebfafaa": {
+          "type": "shopify:\/\/apps\/bundle-products-upsell\/blocks\/product-variant-all-bundles\/0a9e67ff-0413-4374-921d-e70fb17c7dbc",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "cbce13ae-3337-4a0b-b2ef-4ae92ebfafaa"
+      ],
+      "settings": {}
+    },
     "yotpo-reviews": {
       "type": "yotpo-reviews",
       "settings": {}
@@ -28,6 +41,7 @@
     "product",
     "product-info",
     "recommend-product",
+    "16545062796c507a7a",
     "yotpo-reviews"
   ]
 }

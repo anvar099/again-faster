@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="yotpo-widget__actions">
-      <button class="write-btn">Write a review</button>
+      <button class="write-btn ">Write a review</button>
       <button class="ask-btn">Ask a question</button>
     </div>
     <div class="container-yotpo"></div>
@@ -132,6 +132,7 @@
         })();
 
       writeBtn.addEventListener("click", () => {
+        console.log("ddddd")
         document.querySelector(".write-form").closest("form").style.overflow = "hidden";
         document.querySelector(".write-review-wrapper.write-form").classList.toggle("yotpo-form-visible");
       })
