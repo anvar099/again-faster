@@ -195,7 +195,7 @@ img {
   outline: none;
 }
 .th_pb_add_to_cart.btn.button:hover {
-  border: 1px solid #000000 !important;
+  border: 1px solid #000 !important;
   color: #000000 !important;
   background-color: #ffffff !important;
 }
