@@ -7,6 +7,9 @@
         <a class="menubar__link {% if template.name ==  'account' %} active {% endif %}" href="{{ routes.account_url }}">Account Overview</a>
         <a class="menubar__link {% if template.name ==  'order' %} active {% endif %}" href="{{ customer.orders[0].customer_url }}">Order Details</a>
         <a class="menubar__link {% if template.name ==  'addresses' %} active {% endif %}" href="{{ routes.account_addresses_url }}">Address Book</a>
+        <a href="{{ routes.account_logout_url }}" class="navigation__link-url log_out{% if template.name != "index" %} navigation__link-url--dark {% endif %}">
+        Log Out
+      </a>
       </div>
     </div>
   </div>

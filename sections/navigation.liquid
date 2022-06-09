@@ -8,11 +8,13 @@
     </a> 
   </div>
   <ul class="navigation__link-list">
-    {% for link in linklists.main-menu.links %}
+    {% for block in section.blocks  %}
+    {% for link in block.settings.header_link_list.links %}
     <li>
       <a href="{{ link.url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
         {{ link.title }}</a>
     </li>
+    {% endfor %}
     {% endfor %}
   </ul>
   {% if shop.customer_accounts_enabled %}
@@ -21,15 +23,18 @@
       <a href="" class="navigatin__icon">
         {% render "icon__search" %}
       </a>
+      <a href="{{ routes.account_url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
+        {% render "icon__account" %}
+      </a>
       <a href="" class="navigatin__icon" id="myBtn">
         {% render "icon__cart" %}
       </a>
-      <a href="{{ routes.account_url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
+      <!-- <a href="{{ routes.account_url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
         {{ customer.name }}
-      </a>
-      <a href="{{ routes.account_logout_url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
+      </a> -->
+      <!-- <a href="{{ routes.account_logout_url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
         Log Out
-      </a>
+      </a> -->
     </ul>
     {% else %}
     <ul class="navigation__icon-list {% if template.name != "index" %} navigation__icon-list--dark {% endif %}">
@@ -252,6 +257,19 @@ document.querySelector(".cart__product-container").addEventListener('click', e =
         "type": "text",
         "id": "text-per-month-sale",
         "label": "Modal Cart Text Per Month Sale"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "list",
+        "name": "Header list",
+        "settings": [
+          {
+            "type": "link_list",
+            "id": "header_link_list",
+            "label": "Header list"
+          }
+        ]
       }
     ]
   } 
