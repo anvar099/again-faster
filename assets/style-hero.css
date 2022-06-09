@@ -37,6 +37,7 @@
   justify-content: space-between;
   padding: 0 24px;
   margin: 40px 0;
+  cursor: pointer;
 }
 .hero__btn:hover {
   background-color: #ffffff;
