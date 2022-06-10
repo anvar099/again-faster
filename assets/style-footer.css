@@ -75,12 +75,16 @@
   cursor: pointer;
 }
 .footer__menu-container {
-  width: 50%;
+  width: 60%;
 }
+
 .footer__menu-row {
   display: flex;
-  margin: 0 0 0 105px;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  margin-left: 100px;
+}
+.footer-list {
+  width: 250px;
 }
 .footer__menu-title {
   font-family: "Work Sans";

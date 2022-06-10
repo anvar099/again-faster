@@ -1,12 +1,14 @@
 {{ "style-footer.css" | asset_url | stylesheet_tag }}
-{{ "https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@200;300;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600&display=swap" | stylesheet_tag}}
+{{
+"https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Oswald:wght@200;300;500;600;700&family=Work+Sans:wght@100;200;300;400;500;600&display=swap"
+| stylesheet_tag}}
 
 <div class="footer-container container">
   <div class="footer__logo-bg">
     {%- if section.settings.footer-logo-bg != blank -%}
-      <img class="footer__logo__bg-img" src="{{ section.settings.footer-logo-bg | image_url }}" alt="">
+    <img class="footer__logo__bg-img" src="{{ section.settings.footer-logo-bg | image_url }}" alt="">
     {%- else -%}
-      {{ 'logo-footer.png' | asset_url | img_tag }}
+    {{ 'logo-footer.png' | asset_url | img_tag }}
     {%- endif -%}
   </div>
   {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
@@ -14,61 +16,63 @@
     <h3 class="footer__menu-title">{{ section.settings.footer-form-title | escape }}</h3>
     <div class="footer__input-feild">
       <input class="footer__input" type="email" placeholder="Enter your email" id="NewsletterForm--{{ section.id }}"
-      type="email"
-      name="contact[email]"
-      class="field__input"
-      value="{{ form.email }}"
-      aria-required="true"
-      autocorrect="off"
-      autocapitalize="off"
-      autocomplete="email"
-      {% if form.errors %}
-        autofocus
-        aria-invalid="true"
-        aria-describedby="ContactFooter-error"
-      {% elsif form.posted_successfully? %}
-        aria-describedby="ContactFooter-success"
-      {% endif %}
-      placeholder="{{ 'newsletter.label' | t }}"
-      required>
-      <button class="arrow" type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe" aria-label="{{ 'newsletter.button_label' | t }}">
+        type="email" name="contact[email]" class="field__input" value="{{ form.email }}" aria-required="true"
+        autocorrect="off" autocapitalize="off" autocomplete="email" {% if form.errors %} autofocus aria-invalid="true"
+        aria-describedby="ContactFooter-error" {% elsif form.posted_successfully? %}
+        aria-describedby="ContactFooter-success" {% endif %} placeholder="{{ 'newsletter.label' | t }}" required>
+      <button class="arrow" type="submit" class="newsletter-form__button field__button" name="commit" id="Subscribe"
+        aria-label="{{ 'newsletter.button_label' | t }}">
         {% render "arrow-right" %}
       </button>
-      
+
     </div>
     {%- endform -%}
+
+
     <ul class="footer__social-media">
       <li class="list-social__item">
-        <a href="{{ section.settings.social_facebook_link }}" class="link list-social__link" >
+        <a href="{{ section.settings.social_facebook_link }}" class="link list-social__link">
           {%- render 'facebook' -%}
         </a>
       </li>
       <li class="list-social__item">
-        <a href="{{ section.settings.social_instagram_link }}" class="link list-social__link" >
+        <a href="{{ section.settings.social_instagram_link }}" class="link list-social__link">
           {%- render 'instagram' -%}
         </a>
       </li>
       <li class="list-social__item">
-        <a href="{{ section.settings.social_mail_link }}" class="link list-social__link" >
+        <a href="{{ section.settings.social_mail_link }}" class="link list-social__link">
           {%- render 'mail' -%}
         </a>
       </li>
     </ul>
   </div>
   <div class="footer__menu-container">
-    <div class="footer__menu-row">
-      <div class="footer__list">
-        <h3 class="footer__menu-title">{{ section.settings.footer-menu-title-one | escape }}</h3>
+
+      <div class="footer__menu-row">
+        {% for block in section.blocks %}
+        
+        <div class="footer-list">
+         
+        <h3 class="footer__menu-title">{{ block.settings.footer-menu-title-one | escape }}</h3>
+        {% for link in block.settings.footer_link_list.links %}
         <ul class="footer__link-list">
-          {% for link in linklists.footer.links %}
+
+
+          
           <li>
             <a href="{{ link.url }}" class="footer__link-url">
               {{ link.title }}</a>
           </li>
-          {% endfor %}
+          
         </ul>
+        {% endfor %}
       </div>
-      <div class="footer__list">
+      
+        {% endfor %}
+
+      </div>
+      <!-- <div class="footer__list">
         <h3 class="footer__menu-title">{{ section.settings.footer-menu-title-two | escape }}</h3>
         <ul class="footer__link-list">
           {% for link in linklists.footer-second-menu.links %}
@@ -78,9 +82,9 @@
           </li>
           {% endfor %}
         </ul>
-      </div>
-    </div>
-  </div>  
+      </div> -->
+    
+  </div>
 </div>
 <p class="footer-copyright">{{ section.settings.footer-copyright | escape }}</p>
 
@@ -89,49 +93,63 @@
   {
     "name": "Footer",
     "class": "footer",
-    "settings": 
-    [
-      {
-        "type": "image_picker",
-        "id": "footer-logo-bg",
-        "label": "Background Logo"
-      },
-      {
-        "type": "text",
-        "id": "footer-form-title",
-        "label": "Form Title",
-        "default": "Newsletter"
-      },
-      {
-        "type": "text",
-        "id": "footer-menu-title-one",
-        "label": "Menu Title Column One"
-      },
-      {
-        "type": "text",
-        "id": "footer-menu-title-two",
-        "label": "Menu Title Column Two"
-      },
-      {
-        "type": "text",
-        "id": "footer-copyright",
-        "label": "Copyright Comment"
-      },
-      {
-        "type": "url",
-        "id": "social_facebook_link",
-        "label": "Facebook URL"
-      },
-      {
-        "type": "url",
-        "id": "social_instagram_link",
-        "label": "Instagram URL"
-      },
-      {
+    "settings":
+      [
+        {
+          "type": "image_picker",
+          "id": "footer-logo-bg",
+          "label": "Background Logo"
+        },
+        {
+          "type": "text",
+          "id": "footer-form-title",
+          "label": "Form Title",
+          "default": "Newsletter"
+        },
+
+        {
+          "type": "text",
+          "id": "footer-menu-title-two",
+          "label": "Menu Title Column Two"
+        },
+        {
+          "type": "text",
+          "id": "footer-copyright",
+          "label": "Copyright Comment"
+        },
+        {
+          "type": "url",
+          "id": "social_facebook_link",
+          "label": "Facebook URL"
+        },
+        {
+          "type": "url",
+          "id": "social_instagram_link",
+          "label": "Instagram URL"
+        },
+        {
         "type": "url",
         "id": "social_mail_link",
         "label": "Mail URL"
-      }
-    ]
-  }
+        }
+      ],
+      "blocks": [
+        {
+          "type": "list",
+          "name": "Footer list",
+          "settings": [
+            {
+              "type": "link_list",
+              "id": "footer_link_list",
+              "label": "Footer list"
+            },
+            {
+              "type": "text",
+              "id": "footer-menu-title-one",
+              "label": "Menu Title Column One"
+            }
+          ]
+        }
+      ]
+    }
 {% endschema %}
