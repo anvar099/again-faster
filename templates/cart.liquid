@@ -15,47 +15,63 @@ bb_total_price | plus: 0 %}
   {% render 'bb', type: 'cart' %}
   <table class="cart-main__table">
     <div class="cart-main__thead">
-      <div class="thead__child" colspan="2">Prod</div>
-      <div class="thead__child" >Price</div>
-      <div class="thead__child" >Qty</div>
-      <div class="thead__child" >total</div>
+      <div class="thead__child" colspan="2">Product</div>
+      <div class="thead__child text-center" >Price</div>
+      <div class="thead__child text-center" >Qty</div>
+      <div class="thead__child text-end" >total</div>
     </div>
-    <tbody>
+
+      
       {% for item in cart.items %}
+ 
       {% capture bb_original_line_price %}{% render 'bb', type: 'bb_original_line_price', item: item %}{% endcapture
       %}{% assign bb_original_line_price = bb_original_line_price | plus: 0 %}
       {% capture bb_line_price %}{% render 'bb', type: 'bb_line_price', item: item %}{% endcapture %}{% assign
       bb_line_price = bb_line_price | plus: 0 %}
       {% capture bb_price %}{% render 'bb', type: 'bb_price', item: item %}{% endcapture %}{% assign bb_price = bb_price
       | plus: 0 %}
+   
       <tr>
-        <td>
+        <td class="cart-main__product-title text-start">
           <a href="{{ item.url | within: collections.all }}">
-            <img src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+            <img class="cart-main__product-img" src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
           </a>
+          <div class="cart-main__product-name--row"> 
+            <a class="cart-main__product-name" href="{{ item.url }}">{{ item.product.title }}</a>
+            <p>{{ item.variant.title }}lb single</p>
+          </div>
         </td>
-        <td>
-          <a href="{{ item.url }}">{{ item.product.title }}</a>
-          {{ item.variant.title }}
-          <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0">remove</a>
+        
+        <td class="text-center cart-main__product-price">{{ bb_price | money }}</td>
+        <td class="text-center">
+          <input class="cart-main__product-qty" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
         </td>
-        <td>{{ bb_price | money }}</td>
-        <td>
-          <input type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
-        </td>
-        <td>
+        <td class="text-end">
           {% if bb_original_line_price != bb_line_price %}{{ bb_original_line_price | money }}{% endif %}
-          {{ bb_line_price | money }}
+         <p class="cart-main__product-price">{{ bb_line_price | money }}</p>
           {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
+          <a class="cart-main__remove-btn" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">Remove</a>
         </td>
+       
       </tr>
+
       {% endfor %}
-    </tbody>
+      
+      
   </table>
-  <div>
-    <p>sub total : {{ bb_total_price | money }}</p>
-    <button type="submit" name="update">Update</button>
-    <button type="submit" name="checkout">Checkout</button>
+  
+  <div class="cart-main__subtotal__container">
+    <div class="cart-main__subtotal">
+      <p class="cart-main__subtotal-title">subtotal</p>
+      <p class="cart-main__subtotal-title">{{ bb_total_price | money }}</p>
+    </div>
+    
+    <p class="cart-main__subtotal-text" cart-main__subtotal>Tax and shipping calculates at checkout.</p>
+    <!-- <button type="submit" name="update">Update</button> -->
+    <div class="cart-main__checkout__btn">
+      <button type="submit" name="checkout">Checkout</button>
+    </div>
+
   </div>
 </form>
 
