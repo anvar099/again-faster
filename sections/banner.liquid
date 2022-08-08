@@ -1,6 +1,6 @@
 {{ "style-banner.css" | asset_url | stylesheet_tag }}
 
-{% for block in section.blocks %}
+{% for block in section.blocks %} 
 <div class="banner__container container">
   <div class="banner__img-content">
     {%- if block.settings.banner-img-left != blank -%}

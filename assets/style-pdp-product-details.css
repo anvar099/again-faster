@@ -137,6 +137,7 @@
 .label-disabled {
   text-decoration-line: line-through;
   color: #C4C4C4;
+  cursor: not-allowed;
 }
 .btn__add-to-cart {
   width: 100%;

@@ -1,5 +1,5 @@
 {% capture bb_checkout_link %}{% render 'bb', type: 'bb_checkout_link' %}{% endcapture %}
-{{ "style-cart.css" | asset_url | stylesheet_tag }}
+{{ "style-cart-modal.css" | asset_url | stylesheet_tag }}
 <form action="{% if bb_checkout_link != blank %}{{ bb_checkout_link }}{% else %}/cart{% endif %}" method="post" novalidate>
   <input type="hidden" name="_cart" value="{{ cart | json | escape }}" />
   <input type="hidden" name="_shop" value="{{ shop.permanent_domain | escape }}" />
