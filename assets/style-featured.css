@@ -59,3 +59,13 @@
   text-decoration: none;
   margin-top: 10px;
 }
+@media(max-width: 768px) {
+  .featured {
+    padding: 55px 40px;
+  }
+}
+@media(max-width: 450px) {
+  .featured {
+    padding: 40px 4%;
+  }
+}

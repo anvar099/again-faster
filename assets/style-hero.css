@@ -60,3 +60,39 @@
   color: #ffffff;
   text-decoration: none;
 }
+@media(max-width: 768px) {
+  .hero__title{
+    font-size: 40px;
+  }
+  .hero__content {
+    max-width: 70%;
+  }
+  .hero__text {
+    margin-top: 16px;
+  }
+}
+@media(max-width: 450px) {
+  .hero__title{
+    font-size: 40px;
+    line-height: 110%;
+  }
+  .hero__content {
+    margin-left: 4%;
+    max-width: 70%;
+  }
+  .hero__text {
+    line-height: 140.5%;
+    margin-top: 10px;
+  }
+  .hero__btn {
+    height: 38px;
+    width: 150px;
+    border: 1px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    margin: 25px 0 40px 0;
+    cursor: pointer;
+  }
+}

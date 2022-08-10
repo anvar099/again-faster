@@ -2,7 +2,14 @@
 
 <div class="navigation__bar {% if template.name != "index" %} navigation__container--relative {% endif %}">
 <div class="container  navigation__container">
-  <div>
+  <div class="mobile-menu-icon">
+    <div class="hamburger-menu">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+  </div>
+  <div class="navigation__logo__container">
     <a href="{{ routes.root_url }}" class="navigation__logo {% if template.name != "index" %} navigation__logo--dark {% endif %} ">
       {% render "logo" %}
     </a> 
@@ -19,8 +26,8 @@
   </ul>
   {% if shop.customer_accounts_enabled %}
     {% if customer %}
-    <ul class="navigation__icon-list {% if template.name != "index" %} navigation__icon-list--dark {% endif %}">
-      <a href="" class="navigatin__icon">
+    <ul class="navigation__icon-list {% if template.name != "index" %} navigation__icon-list--dark {% endif %}" >
+      <a href="" class="navigatin__icon search-btn">
         {% render "icon__search" %}
       </a>
       <a href="{{ routes.account_url }}" class="navigation__link-url {% if template.name != "index" %} navigation__link-url--dark {% endif %}">
@@ -233,6 +240,14 @@ document.querySelector(".cart__product-container").addEventListener('click', e =
   else if (e.target.classList.contains("qty__plus")){
     updateProductItem("+", e.target)
   }
+})
+
+// navigation 
+
+const navigation = document.querySelector(".navigation__container")
+const button = document.querySelector(".hamburger-menu")
+button.addEventListener('click', (event) => {
+  navigation.classList.toggle("open")
 })
 </script>
 

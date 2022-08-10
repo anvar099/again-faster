@@ -34,12 +34,27 @@
 
 <script>
   var swiper = new Swiper(".swiper", {
-    slidesPerView: 4,
+    slidesPerView: 1,
     scrollbar: {
       el: ".swiper-scrollbar",
       hide: true,
       dragSize: 215
     },
+    breakpoints: {
+          250: {
+            slidesPerView: 2,
+            // spaceBetween: 20,
+          },
+          450: {
+            slidesPerView: 3,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 4,
+            // spaceBetween: 40,
+          }
+          
+        }
   });
 </script>
 

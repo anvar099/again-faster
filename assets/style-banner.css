@@ -67,3 +67,22 @@
   padding-bottom: 8px;
   border-bottom: 1px solid #000000;
 }
+@media(max-width: 768px) {
+  .banner__img-content {
+    display: none;  
+  }
+  .banner__description-content {
+    width: 100%;
+  } 
+  .banner__description {
+    margin: 65px 10% 40px 10%;
+  }
+}
+@media(max-width: 450px) {
+  .banner__description {
+    margin: 65px 4% 40px 4%;
+  }
+  .banner__description img {
+    height: auto;
+  }
+}
