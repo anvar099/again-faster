@@ -79,10 +79,23 @@
   }
 }
 @media(max-width: 450px) {
+  .banner__container {
+    padding-bottom: 45px;
+  }
   .banner__description {
     margin: 65px 4% 40px 4%;
   }
   .banner__description img {
     height: auto;
+  }
+  .banner__title {
+    font-size: 20px;
+  }
+  .banner__text {
+    font-size: 12px;
+    width: 85%;
+  }
+  .banner__btn {
+    margin-top: 25px;
   }
 }

@@ -12,6 +12,7 @@
     {%- endif -%}
   </div>
   {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+  <div class="footer__content">
   <div class="footer-form">
     <h3 class="footer__menu-title">{{ section.settings.footer-form-title | escape }}</h3>
     <div class="footer__input-feild">
@@ -71,20 +72,10 @@
       
         {% endfor %}
 
-      </div>
-      <!-- <div class="footer__list">
-        <h3 class="footer__menu-title">{{ section.settings.footer-menu-title-two | escape }}</h3>
-        <ul class="footer__link-list">
-          {% for link in linklists.footer-second-menu.links %}
-          <li>
-            <a href="{{ link.url }}" class="footer__link-url">
-              {{ link.title }}</a>
-          </li>
-          {% endfor %}
-        </ul>
-      </div> -->
+    </div>
     
   </div>
+</div>
 </div>
 <p class="footer-copyright">{{ section.settings.footer-copyright | escape }}</p>
 

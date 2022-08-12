@@ -2,10 +2,6 @@
   padding: 100px 40px;
 }
 
-.featured__slider__container {
-  margin-bottom: 40px;
-}
-
 .featured__product__blog {
   display: flex;
   flex-direction: column;
@@ -66,6 +62,6 @@
 }
 @media(max-width: 450px) {
   .featured {
-    padding: 40px 4%;
+    padding: 40px 4% 15px 4%;
   }
 }
