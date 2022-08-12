@@ -45,6 +45,7 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  background-color: transparent;
 }
 .navigation__icon-list--dark path{
   stroke: black;
@@ -69,10 +70,6 @@
   display: none;
   cursor: pointer;
   margin-left: 4rem;
-  /* position: absolute;
-    top: 1rem;
-    right: 2rem;
-    z-index: 1; */
 }
 .hamburger-menu {
   width: 3rem;
@@ -89,8 +86,17 @@
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
+.hamburger-menu .black-line {
+  background-color: #000000;
+}
 .navigation__container.open .navigation__link-list {
   transform: translateX(0);
+  background-color: white;
+  z-index: 9;
+  height: 100vh;
+}
+.navigation__container.open .navigation__link-list-padding {
+  margin-top: 40px;
 }
 .navigation__container.open .hamburger-menu {
   transform: rotate(180deg);
@@ -120,9 +126,6 @@
       display: block;
       z-index: 10;
   }
-  /* .navigation__bar {
-      background-color: initial;
-  } */
   .navigation__container .navigation__link-list {
       position: absolute;
       top: 0;
