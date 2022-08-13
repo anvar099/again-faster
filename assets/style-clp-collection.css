@@ -1,13 +1,10 @@
 .clp-collection__container {
-  /* border: 2px solid red; */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 40px auto;
   gap: 40px 16px;
-  padding-bottom: 70px;
+  padding: 30px 40px 70px 40px;
 }
 .clp-collection__product {
-  /* border: 2px solid green; */
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -55,4 +52,18 @@
 .clp-collection__product__img-content:hover i {
   opacity: 1;
   transform: translate(0);
+}
+@media(max-width: 768px) {
+  .clp-collection__container {
+    grid-template-columns: 1fr 1fr;
+    margin: 40px auto;
+    gap: 40px 16px;
+  }
+}
+@media(max-width: 450px) {
+  .clp-collection__container {
+    grid-template-columns: 1fr;
+    gap: 30px 16px;
+    padding: 40px 4%;
+  }
 }

@@ -1,13 +1,12 @@
 .clp__container {
-  /* border: 2px solid red; */
   display: flex;
   width: 100%;
   margin-top: 40px;
   height: auto;
+  padding-bottom: 80px;
 }
 .clp__description-container {
-  /* border: 2px solid green; */
-  width: 45%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +35,8 @@
   letter-spacing: 0.175em;
   text-transform: uppercase;
   color: #000000;
-  width: 90%;
+  max-width: 50rem;
+  width: 100%;
   margin: 16px 0 40px 0;
 }
 .clp__description__btn {
@@ -74,38 +74,66 @@
   fill: black;
 }
 .clp__img-container {
-  /* border: 2px solid yellow; */
-  width: 55%;
+  display: flex;
+  width: 50%;
+  height: auto;
   position: relative;
-}
-.clp__img__large {
-  /* border: 2px solid red; */
-  max-width: 57rem;
-  width: 100%;
-  height: 79rem;
-  z-index: -1;
-  margin-bottom: 77px;
-  
+  margin-right: 10%;
 }
 .clp__img__large-self {
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: auto;
   object-fit: cover;
-}
-
-.clp__img__small {
-  /* border: 2px solid green; */
-  position: absolute;
-  max-width: 30.4rem;
-  width: 100%;
-  max-height: 35.9rem;
-  height: 100%;
-  z-index: 1;
-  bottom: 0;
-  right: 40px;
 }
 .clp__img__small-self {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
+  position: absolute;
+  right: 0;
+  bottom: -7.7rem;
+  width: 35%;
+  height: auto;
+  z-index: 1;
+}
+@media(max-width: 992px) {
+  .clp__description__title {
+    font-size: 32px;
+    line-height: 50px;
+    letter-spacing: 0.135em;
+    max-width: 50rem;
+    width: 100%;
+  }
+}
+@media(max-width: 768px) {
+  .clp__container {
+   flex-direction: column-reverse;
+    width: 100%;
+    margin-top: 40px;
+    padding: 0 4%;
+  }
+  .clp__description-container {
+    width: 100%;
+    margin-top: 50px;
+    padding: 0;
+  }
+  .clp__img-container {
+    width: 100%;
+  }
+  .clp__img__small-self {
+    bottom: -4rem;
+  }
+  .clp__description__title {
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.100em;
+    width: 100%;
+  }
+  
+}
+@media(max-width: 450px) {
+  .clp__description__btn {
+    width: 100%;
+    height: 45px;
+    justify-content: space-between;
+    padding: 0 6%;
+  }
 }
