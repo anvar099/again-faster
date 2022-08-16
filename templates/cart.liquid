@@ -43,12 +43,12 @@ bb_total_price | plus: 0 %}
         </td>
         
         <td class="text-center cart-main__product-price">{{ bb_price | money }}</td>
-        <td class="text-center">
+        <td class="text-center main__product-qty">
           <input class="cart-main__product-qty" type="number" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" min="0">
         </td>
         <td class="text-end">
           {% if bb_original_line_price != bb_line_price %}{{ bb_original_line_price | money }}{% endif %}
-         <p class="cart-main__product-price">{{ bb_line_price | money }}</p>
+         <p class="cart-main__product-total">{{ bb_line_price | money }}</p>
           {% for discount in item.discounts %}{{ discount.title }}{% endfor %}
           <a class="cart-main__remove-btn" href="/cart/change?line={{ forloop.index }}&amp;quantity=0">Remove</a>
         </td>

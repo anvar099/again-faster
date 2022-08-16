@@ -26,18 +26,20 @@
   z-index: 1;
   max-width: 1440px;
   margin: 0 auto;
-  
+  border: 2px solid red;
 }
 .product__info__content {
   padding: 80px 40px;
   display: flex;
   flex-direction: column;
   gap: 160px 0;
+  border: 2px solid blue;
 }
 .product__info__row {
   display: flex;
   flex-direction: row;
   width: 100%;
+  border: 2px solid yellow;
   align-items: center;
 }
 .product__info__row:nth-child(even) {
@@ -202,4 +204,37 @@ img {
 .th_pb_total_price.th_pb_wf {
   font-family: Open Sans;
   font-style: normal;
+}
+@media (max-width: 768px) {
+  .product__info__row:nth-child(even) {
+    flex-direction: column-reverse;
+  }
+  .product__info__row {
+    flex-direction: column-reverse;
+    align-items: unset;
+  }
+  .product__info-text:nth-child(odd) {
+    margin-left: 0;
+  }
+  .product__info__content {
+    padding: 0 4%;
+    gap: 30px 0;
+    border: 2px solid blue;
+  }
+  .product__info-img {
+    width: 100%;
+  }
+  img {
+    max-width: fit-content;
+    width: 100%;
+  }
+   /* section 1 */
+  .product__info__row:nth-child(1) h1 {
+    font-size: 20px;   
+    margin-bottom: 20px;
+
+  }
+  .product__info__row:nth-child(2) .product__info-text {
+    margin-left: 0px;
+  }
 }

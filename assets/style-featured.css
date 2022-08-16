@@ -1,13 +1,19 @@
 .featured {
   padding: 100px 40px;
 }
-
+.featured__slider__container {
+  width: 100%;
+}
 .featured__product__blog {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   transition: 0.3s;
+  width: auto;
+}
+.featured__product__blog a{
+  width: 100%;
 }
 .featured__product__img {
   width: 100%;
@@ -55,6 +61,7 @@
   text-decoration: none;
   margin-top: 10px;
 }
+
 @media(max-width: 768px) {
   .featured {
     padding: 55px 40px;

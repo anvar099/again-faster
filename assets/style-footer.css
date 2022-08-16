@@ -141,6 +141,7 @@
 @media (max-width: 450px) {
   .footer__content {
     margin: 40px 4%;
+    padding: 0;
   }
   .footer__menu-row  {
     flex-direction: column;
