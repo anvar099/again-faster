@@ -3,12 +3,14 @@
     width: 100%;
     margin: 0 auto;
     margin-bottom: 100px;
+    border: 2px solid red;
 }
 
 .yotpo-review.yotpo-regular-box {
     position: relative;
     min-height: 170px;
     border-bottom: 1px solid #F1F1F1;
+    border: 2px solid green;
 }
 
 .main-widget.yotpo-display-wrapper .yotpo-icon-profile {
@@ -259,4 +261,7 @@
     top: 0;
     height: auto;
     right: 0;
+}
+@media(max-width: 768px) {
+    
 }
