@@ -1,9 +1,11 @@
+
+  
 {{ "style-recommend-product.css" | asset_url | stylesheet_tag }}
 
 <div class="container">
   <h1 class="recommend-title">{{ section.settings.title-recommend | escape }}</h1>
   <div class="collection-list__product-row">
-  {% paginate collection.products  %} 
+  {% paginate collection.products %} 
     {% for product in collection.products limit: 4 %}
       <div class="collection-list__product">
         <div class="goods__tag-container">

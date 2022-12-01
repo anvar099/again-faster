@@ -7,7 +7,6 @@
 .swiper {
   overflow-y: hidden;
   position: relative;
-  border: 2px solid red;
   max-height: calc(100vh - 92px); 
   height: 100%;
   width: 100%;
@@ -15,7 +14,6 @@
   justify-content: center;
 }
 .swiper-wrapper {
-  border: 2px solid blue;
   width: 80% !important;
   height: 100% !important;
   display: flex;
@@ -28,7 +26,6 @@
   height: auto;
   object-fit: cover;
   background-color: #f2f2f2;
-  border: 2px solid green;
 }
 .swiper-pagination {
   height: 100px;
