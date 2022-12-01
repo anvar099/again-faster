@@ -21,3 +21,28 @@ a {
   margin: 0 auto;
 }
 
+
+@media(max-width: 592px) {
+  .shopify-block.shopify-app-block {
+    padding: 0 4%;
+  }
+  ul.th_pb_list_ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 !important;
+  }
+  ul.th_pb_list_ul li {
+    max-width: 100% !important;
+  }
+  .th_pb_list_content {
+    padding: 0 !important;
+  }
+  .th_product_img.th_pb_wf img {
+    max-height: 180px !important;
+  }
+}
+@media(max-width: 450px) {
+  .th_product_img.th_pb_wf img {
+    max-height: 120px !important;
+  }
+}
