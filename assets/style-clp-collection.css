@@ -62,7 +62,6 @@
 }
 @media(max-width: 450px) {
   .clp-collection__container {
-    grid-template-columns: 1fr;
     gap: 30px 16px;
     padding: 40px 4%;
   }
