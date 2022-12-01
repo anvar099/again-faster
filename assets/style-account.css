@@ -1,16 +1,13 @@
 .account__container {
-  border: 2px solid blue;
   display: flex;
 }
 .orders__container {
-  border: 2px solid darkmagenta;
   width: 60%;
   margin: 78px 10% 100px 10%;
 }
 
 
 .account__manubar {
-  border: 2px solid red;
   max-width: 368px;
   height: auto;
   background: #FBFBFB;
@@ -20,8 +17,6 @@
 .account__menu {
   display: flex;
   flex-direction: column;
-  border: 2px solid blue;
-  
 }
 .account__menu a {
   font-family: 'Open Sans';
@@ -37,7 +32,7 @@
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 20px !important;
   line-height: 130%;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -76,7 +71,6 @@
 }
 .order__item {
   display: grid;
-  /* border: 2px solid green; */
   padding: 16px 0 23px 0;
   border-bottom: 1px solid #c4c4c4;
   grid-template-columns: 1fr 1fr 1fr 0.5fr;
@@ -174,22 +168,32 @@
   color: #000000 !important;
   text-decoration: none !important;
 }
-@media(max-width: 758px) {
+@media(max-width: 768px) {
   .account__container {
-
     display: flex;
     flex-direction: column;
   }
   .account__manubar {
- 
     max-width: 100%;
-
-    padding: 78px 4% 0 4%;
-    
+    padding: 0 4% 30px 4%;
   }
   .account__menu {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .account__menu a {
+    margin-bottom: 0px;
+  }
+  .menubar__title {
+    margin-bottom: 25px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .orders__container {
+    width: auto;
+    margin: 40px 4% 40px 4%;
   }
 }

@@ -19,7 +19,7 @@
       {% paginate customer.addresses by 3 %}
       <div class="default__address">
         {% for address in customer.addresses %}
-        <div>
+        <div class="address">
           <div>
             {% if address == customer.default_address %}
             <p class="address__title">Default address</p>
@@ -134,15 +134,6 @@
           >Cancel</a
         >
       </div>
-      <!-- See docs for @shopify/theme-addresses to support Country and Province -->
-      <!-- <label class="login__input-label" for="country">Country</label>
-<select class="login__input-field" name="address[country]" /></select>
-<label class="login__input-label" for="province">Province</label>
-<select class="login__input-field" name="address[province]" /></select>
-<label class="login__input-label" for="zip">Zip/Post Code</label>
-<input class="login__input-field" type="text" value="" name="address[zip]" />
-<label class="login__input-label" for="phone">Phone Number</label>
-<input class="login__input-field" type="tel" value="" name="address[phone]" /> -->
     </div>
     {% endform %}
   </div>

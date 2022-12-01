@@ -157,6 +157,12 @@
     gap: 15px;
   }
 }
+@media(max-width: 768px) {
+  .log_out {
+    margin-top: 0;
+    float: right;
+  }
+}
 @media(max-width: 600px){
   .navigation__icon-list .search-btn {
     display: none;
