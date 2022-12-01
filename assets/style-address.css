@@ -51,7 +51,7 @@
 .add__new-address__form {
   max-width: 442px;
 }
-.address__title {
+.address__title, .add__new__address__title {
   font-family: "Open Sans";
   font-style: normal;
   font-weight: 400;
@@ -70,7 +70,7 @@
 }
 .fullname__input,
 .city__address {
-  width: 215px;
+  max-width: 213px;
 }
 .input__container {
   display: flex;
@@ -268,10 +268,9 @@
     padding: 0 4% 30px 4%;
   }
   .menubar__links {
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 15px;
   }
   .menubar__links a {
@@ -287,4 +286,32 @@
     width: auto;
     margin: 40px 4% 40px 4%;
   }
+  .default__add__address {
+    width: 100%;
+  }
+  .add__new-address__form {
+    max-width: 100%;
+  }
+  .add__new__address__title {
+    text-align: center;
+  }
+  .fullname,
+  .city__address-content {
+  flex-direction: column;
+}
+.fullname__input,
+.city__address {
+  max-width: 100%;
+}
+.address__btn-container {
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+.add__address-btn-url {
+  width: 100%;
+}
+.address__cancel {
+  margin-top: 20px;
+}
 }

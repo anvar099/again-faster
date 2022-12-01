@@ -178,10 +178,9 @@
     padding: 0 4% 30px 4%;
   }
   .account__menu {
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 15px;
   }
   .account__menu a {

@@ -196,10 +196,9 @@
     padding: 0 4% 30px 4%;
   }
   .menubar__links {
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     gap: 15px;
   }
   .menubar__links  a {
