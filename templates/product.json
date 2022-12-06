@@ -36,6 +36,7 @@
       "type": "yotpo-reviews",
       "settings": {}
     }
+   
   },
   "order": [
     "product",

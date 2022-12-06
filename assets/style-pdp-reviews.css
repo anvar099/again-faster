@@ -2,7 +2,6 @@
     margin-inline: auto;
     max-width: 90rem;
     position: relative;
-    border: 2px solid red;
     padding: 0 40px;
 }
 .yotpo-widget__title {
@@ -87,129 +86,7 @@
 .yotpo-widget__actions .ask-btn {
     background-color: #fff;
 }
-.main-widget.yotpo-display-wrapper {
-    max-width: 900px;
-    width: 100%;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    border: 2px solid red;
-}
-.yotpo-review.yotpo-regular-box {
-    position: relative;
-    min-height: 170px;
-    border-bottom: 1px solid #F1F1F1;
-    border: 2px solid green;
-    
-}
-.main-widget.yotpo-display-wrapper .yotpo-icon-profile {
-    background: #F1F1F1 !important;
-    border: 2px solid green;
-}
-.main-widget.yotpo-display-wrapper .yotpo-user-letter {
-    color: #C4C4C4 !important;
-}
-.yotpo-review.yotpo-regular-box .yotpo-header {
-    max-width: 120px;
-    height: 100%;
-    position: unset !important;
-    border: 2px solid blue;
-}
-.main-widget.yotpo-display-wrapper .yotpo-review-stars {
-    position: absolute;
-    left: 0;
-    top: 85px;
-    border: 2px solid pink;
-}
-.main-widget.yotpo-display-wrapper .yotpo-icon-star,
-.main-widget.yotpo-display-wrapper .yotpo-icon-half-star,
-.main-widget.yotpo-display-wrapper .yotpo-icon-empty-star {
-    color: #C2A578 !important;
-}
-.main-widget.yotpo-display-wrapper .yotpo-user-name {
-    width: fit-content;
-    position: absolute;
-    top: 35px;
-    left: 65px;
-    font-family: 'Open Sans' !important;
-    font-style: normal !important;
-    font-weight: 600 !important;
-    font-size: 16px !important;
-    line-height: 167.5% !important;
-    color: #000000 !important;
-    border: 2px solid yellow;
-}
-.yotpo-review.yotpo-regular-box .yotpo-header-element.yotpo-header-actions {
-    position: absolute;
-    left: 0;
-    bottom: 23px !important;
-    margin-top: 20px;
-    border: 2px solid red;
-    
-}
-.main-widget.yotpo-display-wrapper .yotpo-review-date {
-    color: #C4C4C4 !important; 
-}
-.yotpo-review.yotpo-regular-box .yotpo-main {
-    max-width: 680px;
-    height: auto;
-    margin-top: -22px;
-    margin-left: 22%;
-    border: 2px solid fuchsia;
-}
-.main-widget.yotpo-display-wrapper .yotpo-review-wrapper {
-    margin-top: -15px !important;
-    border: 2px solid greenyellow;
-    
-}
-.main-widget.yotpo-display-wrapper .content-title {
-    font-family: 'Open Sans' !important;
-    font-style: normal !important;
-    font-weight: 600 !important;
-    font-size: 14px !important;
-    line-height: 167.5% !important;
-    color: #000000 !important;
-    border: 2px solid darkgoldenrod;
-}
-.main-widget.yotpo-display-wrapper .content-review {
-    color: #000000 !important;
-    font-family: 'Open Sans' !important;
-    font-style: normal !important;
-    font-weight: 400 !important;
-    font-size: 14px !important;
-    line-height: 167.5% !important;
-    border: 2px solid rosybrown;
-}
-.yotpo-review.yotpo-regular-box .yotpo-footer {
-    width: 400px;
-    margin-top: 24px;
-    margin-left: auto;
-}
-.main-widget.yotpo-display-wrapper .label-helpful {
-    font-family: 'Open Sans' !important;
-    font-style: normal !important;
-    font-weight: 400 !important;
-    font-size: 14px !important;
-    line-height: 167.5% !important;
-    color: #000000 !important;
-}
-.main-widget.yotpo-display-wrapper .yotpo-icon-thumbs-up {
-    color: #000000 !important;
-}
-.main-widget.yotpo-display-wrapper .yotpo-icon-thumbs-down {
-    color: #C4C4C4 !important;
-}
-.main-widget.yotpo-display-wrapper .yotpo-sum {
-    color: #000000 !important;
-}
-.yotpo-icon-share {
-    color: #000000 !important;
-}
-.main-widget.yotpo-display-wrapper .yotpo-footer .yotpo-action .y-label {
-    color: #000000 !important;
-}
-.yotpo-widget {
-    margin-bottom: 8rem;
-}
+
 .yotpo-widget .yotpo-small-box {
     display: none;
 }
